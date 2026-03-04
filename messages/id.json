@@ -1,0 +1,21 @@
+{
+    "Home": {
+        "title1": "Membangun Pengalaman",
+        "title2": "Digital.",
+        "subtitle": "Portofolio interaktif minimalis kelas atas dengan arsitektur modern.",
+        "role": "Fullstack Developer & Designer",
+        "work": "Karya",
+        "about": "Tentang"
+    },
+    "Projects": {
+        "title": "Karya Terpilih",
+        "subtitle": "Kumpulan produk digital dan eksperimen.",
+        "back": "Kembali"
+    },
+    "About": {
+        "title": "Tentang Saya",
+        "description": "\"Saya seorang fullstack developer yang fokus pada penciptaan pengalaman digital yang imersif dan berkinerja tinggi. Pekerjaan saya menjembatani rekayasa dan desain.\"",
+        "experience": "Pengalaman",
+        "back": "Kembali"
+    }
+}

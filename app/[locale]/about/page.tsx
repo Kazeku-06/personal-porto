@@ -1,26 +1,30 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'About' });
+
     return (
         <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 z-10 relative">
             <header className="mb-20">
                 <Link href="/" className="text-xs font-mono opacity-50 hover:opacity-100 transition-opacity uppercase tracking-widest mb-4 inline-block">
-                    ← Back
+                    ← {t("back")}
                 </Link>
                 <h1 className="text-5xl md:text-7xl font-black tracking-tighter">
-                    About Me
+                    {t("title")}
                 </h1>
             </header>
 
             <div className="max-w-2xl space-y-20">
                 <section>
                     <p className="text-lg md:text-xl md:leading-relaxed opacity-80 leading-relaxed font-serif italic">
-                        "I'm a fullstack developer focused on creating immersive, highly-performant digital experiences. My work bridges the gap between engineering and design."
+                        {t("description")}
                     </p>
                 </section>
 
                 <section className="space-y-12">
-                    <h2 className="text-[10px] uppercase font-mono tracking-[0.3em] opacity-40">Experience</h2>
+                    <h2 className="text-[10px] uppercase font-mono tracking-[0.3em] opacity-40">{t("experience")}</h2>
 
                     <div className="space-y-12 pl-6 md:pl-8 border-l border-white/10 relative">
                         <div className="relative group hover:opacity-100 transition-opacity opacity-80">

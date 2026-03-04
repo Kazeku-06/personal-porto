@@ -2,10 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Github, Linkedin, Twitter, Command } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations("Home");
   const textRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const roleRef = useRef<HTMLParagraphElement>(null);
@@ -14,7 +16,6 @@ export default function Home() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
-      // Typing or reveal animation
       tl.from(textRef.current, {
         y: 40,
         opacity: 0,
@@ -60,7 +61,6 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col h-[100svh] w-full overflow-hidden">
-      {/* Navigation */}
       <header className="absolute top-0 w-full p-6 md:p-10 flex justify-between items-center z-10">
         <Link href="/" className="nav-item font-mono text-sm tracking-widest font-bold flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#FDFCF0] animate-pulse"></span>
@@ -69,40 +69,35 @@ export default function Home() {
 
         <nav className="flex gap-6 md:gap-10 text-xs md:text-sm font-medium tracking-widest uppercase">
           <Link href="/projects" className="nav-item hover:opacity-70 transition-opacity">
-            Work
+            {t("work")}
           </Link>
           <Link href="/about" className="nav-item hover:opacity-70 transition-opacity">
-            About
+            {t("about")}
           </Link>
-          <button className="nav-item hover:opacity-70 transition-opacity font-mono">
-            ID
-          </button>
         </nav>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center text-center px-4 z-10">
         <p ref={roleRef} className="text-[10px] md:text-xs tracking-[0.4em] uppercase mb-6 md:mb-8 opacity-60">
-          Fullstack Developer & Designer
+          {t("role")}
         </p>
         <h1
           ref={textRef}
           className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 lg:mb-8 leading-[0.9]"
         >
-          Building Digital <br />
-          <span className="opacity-90 italic font-serif font-medium">Experience.</span>
+          {t("title1")} <br />
+          <span className="opacity-90 italic font-serif font-medium">{t("title2")}</span>
         </h1>
         <p
           ref={subtitleRef}
           className="max-w-md text-xs md:text-sm opacity-50 leading-relaxed font-mono mt-4"
         >
-          High-end minimalist interactive portfolio <br className="hidden md:block" /> powered by modern architecture.
+          {t("subtitle")}
         </p>
       </main>
 
-      {/* Footer / Socials / Cmd Palette Hint */}
-      <footer className="absolute bottom-0 w-full p-6 md:p-10 flex flex-col md:flex-row justify-between items-center md:items-end gap-6 z-10">
-        <div className="flex gap-8">
+      <footer className="absolute bottom-6 md:bottom-10 right-6 md:right-10 flex items-center gap-6 z-10 border-none md:flex-row flex-col">
+        <div className="flex gap-8 order-2 md:order-1">
           <a href="#" className="social-icon hover:opacity-80 hover:scale-110 transition-all">
             <Github size={20} strokeWidth={1.5} />
           </a>
@@ -114,10 +109,10 @@ export default function Home() {
           </a>
         </div>
 
-        <button className="cmd-prompt flex items-center gap-3 text-[10px] md:text-xs opacity-40 hover:opacity-100 transition-opacity font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10">
+        <div className="cmd-prompt flex items-center gap-3 text-[10px] md:text-xs opacity-40 hover:opacity-100 transition-opacity font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 order-1 md:order-2 cursor-pointer">
           <Command size={14} />
-          <span>Press CMD + K</span>
-        </button>
+          <span>CMD + K</span>
+        </div>
       </footer>
     </div>
   );

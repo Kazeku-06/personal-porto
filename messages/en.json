@@ -1,0 +1,21 @@
+{
+    "Home": {
+        "title1": "Building Digital",
+        "title2": "Experience.",
+        "subtitle": "High-end minimalist interactive portfolio powered by modern architecture.",
+        "role": "Fullstack Developer & Designer",
+        "work": "Work",
+        "about": "About"
+    },
+    "Projects": {
+        "title": "Selected Work",
+        "subtitle": "A collection of digital products and experiments.",
+        "back": "Back"
+    },
+    "About": {
+        "title": "About Me",
+        "description": "\"I'm a fullstack developer focused on creating immersive, highly-performant digital experiences. My work bridges the gap between engineering and design.\"",
+        "experience": "Experience",
+        "back": "Back"
+    }
+}
