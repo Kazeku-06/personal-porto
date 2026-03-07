@@ -8,13 +8,13 @@
 }
 
 @layer base {
-  * {
+  body.custom-cursor-active * {
     cursor: none;
     /* Let custom cursor handle mouse */
   }
 
   @media (hover: none) and (pointer: coarse) {
-    * {
+    body.custom-cursor-active * {
       cursor: auto;
     }
   }

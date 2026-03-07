@@ -2,17 +2,27 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { usePathname } from "@/i18n/routing";
 
 export default function CustomCursor() {
+    const pathname = usePathname();
     const cursorRef = useRef<HTMLDivElement>(null);
 
+    const isCustomCursorPage = pathname === "/projects" || pathname === "/contact";
+
     useEffect(() => {
-        // Disable on reduced motion or touch devices
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        // Disable on reduced motion or touch devices, or if not on specified pages
+        if (!isCustomCursorPage ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
             window.matchMedia("(pointer: coarse)").matches) {
+
+            document.body.classList.remove("custom-cursor-active");
             if (cursorRef.current) cursorRef.current.style.display = 'none';
             return;
         }
+
+        document.body.classList.add("custom-cursor-active");
+        if (cursorRef.current) cursorRef.current.style.display = 'block';
 
         const cursor = cursorRef.current;
         if (!cursor) return;
@@ -49,8 +59,11 @@ export default function CustomCursor() {
             window.removeEventListener("mousemove", onMouseMove);
             document.removeEventListener("mouseover", onMouseOver);
             document.removeEventListener("mouseout", onMouseOut);
+            document.body.classList.remove("custom-cursor-active");
         };
-    }, []);
+    }, [isCustomCursorPage]);
+
+    if (!isCustomCursorPage) return null;
 
     return (
         <div
