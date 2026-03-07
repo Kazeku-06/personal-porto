@@ -9,9 +9,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     return (
         <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 z-10 relative">
             <header className="mb-20">
-                <Link href="/" className="text-xs font-mono opacity-50 hover:opacity-100 transition-opacity uppercase tracking-widest mb-4 inline-block">
-                    ← {t("back")}
-                </Link>
                 <h1 className="text-5xl md:text-7xl font-black tracking-tighter">
                     {t("title")}
                 </h1>
@@ -47,7 +44,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                             <div className="absolute w-3 h-3 bg-white/20 rounded-full -left-[31px] md:-left-[39px] top-1 transition-transform group-hover:scale-125"></div>
                             <h3 className="text-lg font-bold tracking-tight mb-1">Fullstack Developer</h3>
                             <p className="text-xs opacity-50 font-mono mb-4 tracking-widest uppercase">Agency XYZ | 2020 - 2022</p>
-                            <p className="text-sm opacity-80 leading-relaxed">Developed end-to-end client projects. Integrated headless CMS and multiple third-party APIs with a focus on high-fidelity designs.</p>
+                            <p className="text-sm opacity-80 leading-relaxed">Developed end-to-end client proje\cts. Integrated headless CMS and multiple third-party APIs with a focus on high-fidelity designs.</p>
                         </div>
                     </div>
                 </section>

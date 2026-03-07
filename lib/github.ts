@@ -23,7 +23,6 @@ export async function getGithubProjects(username: string) {
 
 export async function getTotalCommits(username: string) {
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-    // We use the search syntax to find total commits
     const headers: HeadersInit = {
         Accept: "application/vnd.github.cloak-preview+json",
     };
@@ -39,7 +38,7 @@ export async function getTotalCommits(username: string) {
         });
 
         if (!res.ok) {
-            return 0; // Return 0 if we hit rate limits or fail
+            return 0; 
         }
 
         const data = await res.json();

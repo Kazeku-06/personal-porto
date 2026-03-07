@@ -2,6 +2,7 @@ import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { Github, Linkedin, Mail, ArrowUpRight, Instagram } from "lucide-react";
 import { SiDiscord } from "react-icons/si";
+import { BsTelegram } from "react-icons/bs";
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
@@ -13,6 +14,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         { name: "Discord", url: "https://discord.com/users/1070625576290877540", icon: SiDiscord, username: "nopallgtg" },
         { name: "Email", url: "mailto:tssytari@gmail.com", icon: Mail, username: "tssytari@gmail.com" },
         { name: "Instagram", url: "https://www.instagram.com/nhhdky", icon: Instagram, username: "nhhdky" },
+        { name: "Telegram", url: "https://t.me/ryuuuua", icon: BsTelegram, username: "ryuuuua" }
     ];
 
     return (
@@ -26,11 +28,14 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 </p>
             </header>
 
+
+
             {/* Wrapper utama: 
                 - overflow-x-auto memungkinkan scroll jika kolom bertambah.
                 - no-scrollbar untuk menyembunyikan scrollbar (opsional).
+                - isolation:isolate dan relative z-10 untuk memperbaiki bug mix-blend-mode cursor pada kontainer yang bisa di-scroll.
             */}
-            <div className="max-w-full overflow-x-auto pb-8 no-scrollbar">
+            <div className="max-w-full overflow-x-auto pb-8 no-scrollbar relative z-10 isolate">
                 {/* Grid System:
                     - grid-flow-col: Isi kolom ke bawah dulu.
                     - grid-rows-2: Maksimal 2 baris ke bawah.
