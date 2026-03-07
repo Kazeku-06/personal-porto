@@ -11,12 +11,19 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     const t = await getTranslations({ locale, namespace: 'Projects' });
 
     // Parallel fetch: Github repositories + Database metadata
-    const [githubRepos, dbProjects] = await Promise.all([
-        getGithubProjects("Kazeku-06"), // REPLACE with your username
-        prisma.project.findMany()
-    ]);
+    let dbProjects: any[] = [];
+    let githubRepos: any = [];
 
-    // Handle case where github didn't return an array 
+    try {
+        const [repos, projects] = await Promise.all([
+            getGithubProjects("Kazeku-06"), // REPLACE with your username
+            prisma.project.findMany().catch(() => []) // Silently fail db query
+        ]);
+        githubRepos = repos;
+        dbProjects = projects;
+    } catch (error) {
+        console.error("Fetch error:", error);
+    }
     const reposArray = Array.isArray(githubRepos) ? githubRepos : [];
 
     // Combine data
