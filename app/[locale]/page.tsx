@@ -96,7 +96,7 @@ export default function Home() {
           <a href="https://github.com/Kazeku-06" target="_blank" className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block">
             <Github size={20} strokeWidth={1.5} className="pointer-events-none" />
           </a>
-          <a href="#" className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block">
+          <a href="https://www.linkedin.com/in/naufal-dzaky-7897b1388/" className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block">
             <Linkedin size={20} strokeWidth={1.5} className="pointer-events-none" />
           </a>
           <a href="#" className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block">

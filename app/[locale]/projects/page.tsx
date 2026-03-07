@@ -2,7 +2,7 @@ import { Link } from "@/i18n/routing";
 import { ArrowUpRight, Github, Globe } from "lucide-react";
 import { getGithubProjects } from "@/lib/github";
 import { getTranslations } from "next-intl/server";
-import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiGreensock, SiPrisma, SiPostgresql, SiNodedotjs, SiFramer } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiGreensock, SiPrisma, SiPostgresql, SiNodedotjs, SiFramer, SiShadcnui, SiLaravel, SiPhp, SiMysql, SiRust, SiPython, SiVuedotjs, SiSharp, SiJavascript, SiHtml5, SiCss, SiFlask, SiGit, SiGithub } from "react-icons/si";
 
 export const revalidate = 3600;
 
@@ -41,9 +41,6 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     return (
         <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 z-10 relative">
             <header className="mb-16">
-                <Link href="/" className="text-xs font-mono opacity-50 hover:opacity-100 transition-opacity uppercase tracking-widest mb-4 inline-block">
-                    ← {t("back")}
-                </Link>
                 <h1 className="text-4xl md:text-5xl font-black tracking-tighter">
                     {t("title")}
                 </h1>
@@ -59,12 +56,26 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                         { name: "Next.js", icon: SiNextdotjs },
                         { name: "React", icon: SiReact },
                         { name: "TypeScript", icon: SiTypescript },
+                        { name: "JavaScript", icon: SiJavascript },
+                        { name: "HTML", icon: SiHtml5 },
+                        { name: "CSS", icon: SiCss },
                         { name: "Tailwind CSS", icon: SiTailwindcss },
                         { name: "GSAP", icon: SiGreensock },
                         { name: "Prisma", icon: SiPrisma },
                         { name: "PostgreSQL", icon: SiPostgresql },
                         { name: "Node.js", icon: SiNodedotjs },
-                        { name: "Framer Motion", icon: SiFramer }
+                        { name: "Framer Motion", icon: SiFramer },
+                        { name: "Shadcn UI", icon: SiShadcnui },
+                        { name: "Laravel", icon: SiLaravel },
+                        { name: "MySQL", icon: SiMysql },
+                        { name: "PHP", icon: SiPhp },
+                        { name: "Rust", icon: SiRust },
+                        { name: "Python", icon: SiPython },
+                        { name: "Vue.js", icon: SiVuedotjs },
+                        { name: "C#", icon: SiSharp },
+                        { name: "Git", icon: SiGit },
+                        { name: "GitHub", icon: SiGithub },
+                        { name: "Flask", icon: SiFlask },
                     ].map((tech) => (
                         <span key={tech.name} className="flex items-center gap-3 px-5 py-3 md:px-6 md:py-4 rounded-full border border-white/10 bg-white/5 text-sm md:text-base font-mono opacity-80 hover:opacity-100 hover:bg-white/10 transition-all cursor-pointer">
                             <tech.icon size={20} className="md:w-6 md:h-6" />
