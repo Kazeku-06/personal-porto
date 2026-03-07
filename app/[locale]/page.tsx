@@ -70,7 +70,17 @@ export default function Home() {
           <span className="w-2 h-2 rounded-full bg-[#FDFCF0] animate-pulse"></span>
           NAUFAL.
         </Link>
-
+        <nav className="flex gap-6 md:gap-10 text-xs md:text-sm font-medium tracking-widest uppercase relative z-50">
+          <Link href="/projects" className="nav-item hover:opacity-70 transition-opacity cursor-pointer">
+            {t("work")}
+          </Link>
+          <Link href="/about" className="nav-item hover:opacity-70 transition-opacity cursor-pointer">
+            {t("about")}
+          </Link>
+          <Link href="/contact" className="nav-item hover:opacity-70 transition-opacity cursor-pointer">
+            {t("contact")}
+          </Link>
+        </nav>
       </header>
 
       <main className="flex-1 flex flex-col items-center justify-center text-center px-4 z-10">

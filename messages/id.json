@@ -5,7 +5,8 @@
         "subtitle": "Portofolio interaktif minimalis kelas atas dengan arsitektur modern.",
         "role": "Fullstack Developer & Backend Developer",
         "work": "Karya",
-        "about": "Tentang"
+        "about": "Tentang",
+        "contact": "Kontak"
     },
     "Projects": {
         "title": "Karya Terpilih",
@@ -16,6 +17,11 @@
         "title": "Tentang Saya",
         "description": "\"Saya seorang fullstack developer yang fokus pada penciptaan pengalaman digital yang imersif dan berkinerja tinggi. Pekerjaan saya menjembatani rekayasa dan desain.\"",
         "experience": "Pengalaman",
+        "back": "Kembali"
+    },
+    "Contact": {
+        "title": "Sosial Media",
+        "subtitle": "Terhubung bersama saya",
         "back": "Kembali"
     }
 }

@@ -5,7 +5,8 @@
         "subtitle": "High-end minimalist interactive portfolio powered by modern architecture.",
         "role": "Fullstack Developer & Backend Developer",
         "work": "Work",
-        "about": "About"
+        "about": "About",
+        "contact": "Contact"
     },
     "Projects": {
         "title": "Selected Work",
@@ -16,6 +17,11 @@
         "title": "About Me",
         "description": "\"I'm a fullstack developer focused on creating immersive, highly-performant digital experiences. My work bridges the gap between engineering and design.\"",
         "experience": "Experience",
+        "back": "Back"
+    },
+    "Contact": {
+        "title": "Social Media",
+        "subtitle": "Connect with me online",
         "back": "Back"
     }
 }

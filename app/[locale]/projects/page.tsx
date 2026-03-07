@@ -50,6 +50,17 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                 </p>
             </header>
 
+            <section className="mb-20">
+                <h2 className="text-[10px] uppercase font-mono tracking-[0.3em] opacity-40 mb-8">Tech Stack</h2>
+                <div className="flex flex-wrap gap-3 md:gap-4">
+                    {["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP", "Prisma", "PostgreSQL", "Node.js", "Framer Motion"].map((tech) => (
+                        <span key={tech} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-mono opacity-80 hover:opacity-100 hover:bg-white/10 transition-all cursor-pointer">
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+            </section>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
                 {sortedProjects.map((project, i) => (
                     <Link

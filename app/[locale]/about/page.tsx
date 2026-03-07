@@ -16,8 +16,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 </h1>
             </header>
 
-            <div className="max-w-2xl space-y-20">
-                <section>
+            <div className="max-w-4xl space-y-20">
+                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="aspect-[4/5] bg-white/5 rounded-2xl border border-white/10 overflow-hidden relative flex items-center justify-center">
+                        <span className="text-xs font-mono opacity-50 uppercase tracking-widest">Image Placeholder</span>
+                        {/* <Image src="/path-to-image.jpg" alt="Profile" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" /> */}
+                    </div>
                     <p className="text-lg md:text-xl md:leading-relaxed opacity-80 leading-relaxed font-serif italic">
                         {t("description")}
                     </p>
