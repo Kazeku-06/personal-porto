@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Command } from "cmdk";
-import { Search, Folder, User, Home, Globe } from "lucide-react";
+import { Search, Folder, User, Home, Globe, Mail } from "lucide-react";
 import { useRouter, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -41,39 +41,50 @@ export function CommandPalette() {
                     />
                 </div>
 
-                <Command.List className="p-2 max-h-[300px] overflow-y-auto">
+                <Command.List className="p-2 max-h-[300px] overflow-y-auto no-scrollbar">
                     <Command.Empty className="p-4 text-center text-sm opacity-50">No results found.</Command.Empty>
 
-                    <Command.Group heading="Navigation" className="px-2 py-2 text-xs opacity-50 uppercase tracking-widest text-white/50">
+                    <Command.Group heading="Navigation" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[10px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest [&_[cmdk-group-heading]]:text-[#FDFCF0]/40 [&_[cmdk-group-heading]]:font-bold mt-2">
                         <Command.Item
+                            value="home"
                             onSelect={() => { router.push('/'); setOpen(false); }}
-                            className="flex items-center gap-2 p-2 rounded-md hover:bg-white/10 cursor-pointer transition-colors mt-1 opacity-100 text-sm data-[selected=true]:bg-white/10"
+                            className="flex items-center gap-3 p-3 mx-1 rounded-lg hover:bg-white/10 cursor-pointer transition-colors text-sm text-[#FDFCF0] outline-none data-[selected=true]:bg-white/10 aria-selected:bg-white/10"
                         >
-                            <Home size={16} /> Home
+                            <Home size={16} className="opacity-60" /> Home
                         </Command.Item>
                         <Command.Item
+                            value="projects"
                             onSelect={() => { router.push('/projects'); setOpen(false); }}
-                            className="flex items-center gap-2 p-2 rounded-md hover:bg-white/10 cursor-pointer transition-colors mt-1 opacity-100 text-sm data-[selected=true]:bg-white/10"
+                            className="flex items-center gap-3 p-3 mx-1 rounded-lg hover:bg-white/10 cursor-pointer transition-colors text-sm text-[#FDFCF0] outline-none data-[selected=true]:bg-white/10 aria-selected:bg-white/10"
                         >
-                            <Folder size={16} /> Projects
+                            <Folder size={16} className="opacity-60" /> Projects
                         </Command.Item>
                         <Command.Item
+                            value="about"
                             onSelect={() => { router.push('/about'); setOpen(false); }}
-                            className="flex items-center gap-2 p-2 rounded-md hover:bg-white/10 cursor-pointer transition-colors mt-1 opacity-100 text-sm data-[selected=true]:bg-white/10"
+                            className="flex items-center gap-3 p-3 mx-1 rounded-lg hover:bg-white/10 cursor-pointer transition-colors text-sm text-[#FDFCF0] outline-none data-[selected=true]:bg-white/10 aria-selected:bg-white/10"
                         >
-                            <User size={16} /> About
+                            <User size={16} className="opacity-60" /> About
+                        </Command.Item>
+                        <Command.Item
+                            value="contact"
+                            onSelect={() => { router.push('/contact'); setOpen(false); }}
+                            className="flex items-center gap-3 p-3 mx-1 rounded-lg hover:bg-white/10 cursor-pointer transition-colors text-sm text-[#FDFCF0] outline-none data-[selected=true]:bg-white/10 aria-selected:bg-white/10"
+                        >
+                            <Mail size={16} className="opacity-60" /> Contact
                         </Command.Item>
                     </Command.Group>
 
-                    <Command.Group heading="Settings" className="px-2 py-2 text-xs opacity-50 uppercase tracking-widest text-white/50 border-t border-white/5 mt-2">
+                    <Command.Group heading="Settings" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[10px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest [&_[cmdk-group-heading]]:text-[#FDFCF0]/40 [&_[cmdk-group-heading]]:font-bold [&_[cmdk-group-heading]]:border-t [&_[cmdk-group-heading]]:border-white/10 mt-4 pt-2">
                         <Command.Item
+                            value="language"
                             onSelect={() => {
                                 router.replace(pathname, { locale: locale === 'en' ? 'id' : 'en' });
                                 setOpen(false);
                             }}
-                            className="flex items-center gap-2 p-2 rounded-md hover:bg-white/10 cursor-pointer transition-colors mt-1 opacity-100 text-sm data-[selected=true]:bg-white/10"
+                            className="flex items-center gap-3 p-3 mx-1 rounded-lg hover:bg-white/10 cursor-pointer transition-colors text-sm text-[#FDFCF0] outline-none data-[selected=true]:bg-white/10 aria-selected:bg-white/10"
                         >
-                            <Globe size={16} /> Switch to {locale === 'en' ? 'Indonesian' : 'English'}
+                            <Globe size={16} className="opacity-60" /> Switch to {locale === 'en' ? 'Indonesian' : 'English'}
                         </Command.Item>
                     </Command.Group>
                 </Command.List>

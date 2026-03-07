@@ -120,7 +120,7 @@ export default function Home() {
           onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
         >
           <Command size={14} />
-          <span>CMD + K</span>
+          <span>CTRL + K</span>
         </div>
       </footer>
     </div>
