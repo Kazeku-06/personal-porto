@@ -8,12 +8,11 @@ export default function CustomCursor() {
     const pathname = usePathname();
     const cursorRef = useRef<HTMLDivElement>(null);
 
-    const isCustomCursorPage = pathname === "/projects" || pathname === "/contact";
+    const isInteractivePage = pathname === "/projects" || pathname === "/contact";
 
     useEffect(() => {
-        // Disable on reduced motion or touch devices, or if not on specified pages
-        if (!isCustomCursorPage ||
-            window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        // Disable completely on reduced motion or touch devices
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
             window.matchMedia("(pointer: coarse)").matches) {
 
             document.body.classList.remove("custom-cursor-active");
@@ -38,6 +37,7 @@ export default function CustomCursor() {
         };
 
         const onMouseOver = (e: MouseEvent) => {
+            if (!isInteractivePage) return;
             const target = e.target as HTMLElement;
             if (target.closest("a, button, input, [role='button'], .cursor-pointer")) {
                 gsap.to(cursor, { scale: 1.5, duration: 0.2, backgroundColor: "transparent", border: "1px solid #FDFCF0" });
@@ -45,6 +45,7 @@ export default function CustomCursor() {
         };
 
         const onMouseOut = (e: MouseEvent) => {
+            if (!isInteractivePage) return;
             const target = e.target as HTMLElement;
             if (target.closest("a, button, input, [role='button'], .cursor-pointer")) {
                 gsap.to(cursor, { scale: 1, duration: 0.2, backgroundColor: "#FDFCF0", border: "none" });
@@ -59,11 +60,8 @@ export default function CustomCursor() {
             window.removeEventListener("mousemove", onMouseMove);
             document.removeEventListener("mouseover", onMouseOver);
             document.removeEventListener("mouseout", onMouseOut);
-            document.body.classList.remove("custom-cursor-active");
         };
-    }, [isCustomCursorPage]);
-
-    if (!isCustomCursorPage) return null;
+    }, [isInteractivePage]);
 
     return (
         <div
