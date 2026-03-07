@@ -22,6 +22,7 @@ export default function Home() {
         duration: 1.2,
         ease: "power4.out",
         delay: 0.2,
+        clearProps: "all"
       })
         .from(
           roleRef.current,
@@ -30,6 +31,7 @@ export default function Home() {
             opacity: 0,
             duration: 1,
             ease: "power3.out",
+            clearProps: "all"
           },
           "-=0.8"
         )
@@ -40,6 +42,7 @@ export default function Home() {
             opacity: 0,
             duration: 1,
             ease: "power3.out",
+            clearProps: "all"
           },
           "-=0.6"
         )
@@ -51,6 +54,7 @@ export default function Home() {
             stagger: 0.1,
             duration: 0.8,
             ease: "power2.out",
+            clearProps: "all"
           },
           "-=0.5"
         );
@@ -109,7 +113,10 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="cmd-prompt flex items-center gap-3 text-[10px] md:text-xs opacity-40 hover:opacity-100 transition-opacity font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 order-1 md:order-2 cursor-pointer">
+        <div 
+          className="cmd-prompt flex items-center gap-3 text-[10px] md:text-xs opacity-40 hover:opacity-100 transition-opacity font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 order-1 md:order-2 cursor-pointer"
+          onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
+        >
           <Command size={14} />
           <span>CMD + K</span>
         </div>
