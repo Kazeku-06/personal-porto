@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
-import { ArrowUpRight, Github, Globe } from "lucide-react";
-import { getGithubProjects } from "@/lib/github";
+import { ArrowUpRight, Github, Globe, GitCommit, FolderGit2 } from "lucide-react";
+import { getGithubProjects, getTotalCommits } from "@/lib/github";
 import { getTranslations } from "next-intl/server";
 import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiGreensock, SiPrisma, SiPostgresql, SiNodedotjs, SiFramer, SiShadcnui, SiLaravel, SiPhp, SiMysql, SiRust, SiPython, SiVuedotjs, SiSharp, SiJavascript, SiHtml5, SiCss, SiFlask, SiGit, SiGithub } from "react-icons/si";
 
@@ -11,10 +11,15 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     const t = await getTranslations({ locale, namespace: 'Projects' });
 
     let githubRepos: any = [];
+    let totalCommits = 0;
 
     try {
-        const repos = await getGithubProjects("Kazeku-06"); // REPLACE with your username
+        const [repos, commits] = await Promise.all([
+            getGithubProjects("Kazeku-06"), // REPLACE with your username
+            getTotalCommits("Kazeku-06")
+        ]);
         githubRepos = repos;
+        totalCommits = commits;
     } catch (error) {
         console.error("Fetch error:", error);
     }
@@ -41,12 +46,30 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     return (
         <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 z-10 relative">
             <header className="mb-16">
-                <h1 className="text-4xl md:text-5xl font-black tracking-tighter">
-                    {t("title")}
-                </h1>
-                <p className="text-sm opacity-60 font-mono mt-4">
-                    {t("subtitle")}
-                </p>
+                <Link href="/" className="text-xs font-mono opacity-50 hover:opacity-100 transition-opacity uppercase tracking-widest mb-4 inline-block">
+                    ← {t("back")}
+                </Link>
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <h1 className="text-4xl md:text-5xl font-black tracking-tighter">
+                            {t("title")}
+                        </h1>
+                        <p className="text-sm opacity-60 font-mono mt-4">
+                            {t("subtitle")}
+                        </p>
+                    </div>
+
+                    <div className="flex gap-4 text-xs font-mono uppercase tracking-widest opacity-60 mb-2">
+                        <div className="flex items-center gap-2 border border-white/10 rounded-full px-4 py-2 bg-white/5">
+                            <FolderGit2 size={14} />
+                            <span>{sortedProjects.length} Repositories</span>
+                        </div>
+                        <div className="flex items-center gap-2 border border-white/10 rounded-full px-4 py-2 bg-white/5">
+                            <GitCommit size={14} />
+                            <span>{totalCommits} Commits</span>
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <section className="mb-20">
