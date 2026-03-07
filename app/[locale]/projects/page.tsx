@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/routing";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github, Globe } from "lucide-react";
 import { getGithubProjects } from "@/lib/github";
 import { getTranslations } from "next-intl/server";
 import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiGreensock, SiPrisma, SiPostgresql, SiNodedotjs, SiFramer } from "react-icons/si";
@@ -28,7 +28,8 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
             desc: repo.description || "No description provided.",
             stars: repo.stargazers_count,
             language: repo.language || "Markdown",
-            url: repo.html_url
+            url: repo.html_url,
+            homepage: repo.homepage
         };
     }).filter((repo: any) => !repo.name.toLowerCase().includes("readme"));
 
@@ -73,13 +74,11 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                 </div>
             </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min">
                 {sortedProjects.map((project, i) => (
-                    <Link
+                    <div
                         key={project.id}
-                        href={project.url}
-                        target="_blank"
-                        className={`group relative flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all overflow-hidden`}
+                        className={`group relative flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all overflow-hidden h-full min-h-[340px]`}
                     >
                         {/* Hover overlay pattern */}
                         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
@@ -89,17 +88,37 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                                 <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-4 group-hover:text-white transition-colors capitalize">{project.name.replace(/-/g, ' ')}</h2>
                                 <p className="text-xs md:text-sm opacity-60 font-mono line-clamp-2 md:line-clamp-3 leading-relaxed">{project.desc}</p>
                             </div>
-                            <ArrowUpRight size={24} className="opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 -translate-x-2 group-hover:translate-y-0 group-hover:translate-x-0" />
                         </div>
 
-                        <div className="flex gap-6 items-center text-[10px] md:text-xs font-mono opacity-50 uppercase tracking-widest z-10 w-full justify-between mt-auto">
-                            <span className="flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#FDFCF0]"></div>
-                                {project.language}
-                            </span>
-                            <span>★ {project.stars}</span>
+                        <div className="flex flex-col gap-6 items-start text-[10px] md:text-xs font-mono uppercase tracking-widest z-10 w-full justify-between mt-auto pt-8">
+                            <div className="flex gap-6 items-center opacity-50 w-full justify-between">
+                                <span className="flex items-center gap-2">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#FDFCF0]"></div>
+                                    {project.language}
+                                </span>
+                                <span>★ {project.stars}</span>
+                            </div>
+
+                            <div className="flex gap-3 w-full">
+                                <a
+                                    href={project.url}
+                                    target="_blank"
+                                    className="flex-1 flex items-center justify-center gap-2 py-3 border border-white/10 bg-white/5 hover:bg-white/10 rounded-xl transition-colors cursor-pointer"
+                                >
+                                    <Github size={14} /> Source
+                                </a>
+                                {project.homepage && (
+                                    <a
+                                        href={project.homepage.startsWith('http') ? project.homepage : `https://${project.homepage}`}
+                                        target="_blank"
+                                        className="flex-1 flex items-center justify-center gap-2 py-3 border border-[#FDFCF0] bg-[#FDFCF0] text-black font-bold hover:bg-white/90 rounded-xl transition-colors cursor-pointer"
+                                    >
+                                        <Globe size={14} /> Demo
+                                    </a>
+                                )}
+                            </div>
                         </div>
-                    </Link>
+                    </div>
                 ))}
                 {sortedProjects.length === 0 && (
                     <p className="text-white/50 col-span-full py-20 text-center font-mono text-sm leading-10">
