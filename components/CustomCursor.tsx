@@ -27,28 +27,28 @@ export default function CustomCursor() {
             yTo(e.clientY);
         };
 
-        const interactiveElements = document.querySelectorAll("a, button, input");
-
-        const onMouseEnter = () => {
-            gsap.to(cursor, { scale: 1.5, duration: 0.2, backgroundColor: "transparent", border: "1px solid #FDFCF0" });
+        const onMouseOver = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target.closest("a, button, input, [role='button'], .cursor-pointer")) {
+                gsap.to(cursor, { scale: 1.5, duration: 0.2, backgroundColor: "transparent", border: "1px solid #FDFCF0" });
+            }
         };
 
-        const onMouseLeave = () => {
-            gsap.to(cursor, { scale: 1, duration: 0.2, backgroundColor: "#FDFCF0", border: "none" });
+        const onMouseOut = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target.closest("a, button, input, [role='button'], .cursor-pointer")) {
+                gsap.to(cursor, { scale: 1, duration: 0.2, backgroundColor: "#FDFCF0", border: "none" });
+            }
         };
 
         window.addEventListener("mousemove", onMouseMove);
-        interactiveElements.forEach((el) => {
-            el.addEventListener("mouseenter", onMouseEnter);
-            el.addEventListener("mouseleave", onMouseLeave);
-        });
+        document.addEventListener("mouseover", onMouseOver);
+        document.addEventListener("mouseout", onMouseOut);
 
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
-            interactiveElements.forEach((el) => {
-                el.removeEventListener("mouseenter", onMouseEnter);
-                el.removeEventListener("mouseleave", onMouseLeave);
-            });
+            document.removeEventListener("mouseover", onMouseOver);
+            document.removeEventListener("mouseout", onMouseOut);
         };
     }, []);
 

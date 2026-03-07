@@ -44,8 +44,8 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-[#FDFCF0]`}>
+    <html lang={locale} className="dark scroll-smooth" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-[#FDFCF0]`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <div className="noise-overlay" />
           <CommandPalette />

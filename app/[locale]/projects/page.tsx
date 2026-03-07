@@ -1,6 +1,5 @@
 import { Link } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
-import prisma from "@/lib/prisma";
 import { getGithubProjects } from "@/lib/github";
 import { getTranslations } from "next-intl/server";
 
@@ -10,17 +9,11 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'Projects' });
 
-    // Parallel fetch: Github repositories + Database metadata
-    let dbProjects: any[] = [];
     let githubRepos: any = [];
 
     try {
-        const [repos, projects] = await Promise.all([
-            getGithubProjects("Kazeku-06"), // REPLACE with your username
-            prisma.project.findMany().catch(() => []) // Silently fail db query
-        ]);
+        const repos = await getGithubProjects("Kazeku-06"); // REPLACE with your username
         githubRepos = repos;
-        dbProjects = projects;
     } catch (error) {
         console.error("Fetch error:", error);
     }
@@ -28,23 +21,18 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
     // Combine data
     const projects = reposArray.map((repo: any) => {
-        const dbProject = dbProjects.find(p => p.githubRepoId === repo.id);
         return {
             id: repo.id.toString(),
-            githubRepoId: repo.id,
-            slug: dbProject?.slug || repo.name,
             name: repo.name,
-            desc: locale === 'id' ? (dbProject?.desc_id || repo.description || "Tidak ada deskripsi.") : (dbProject?.desc_en || repo.description || "No description provided."),
+            desc: repo.description || "No description provided.",
             stars: repo.stargazers_count,
             language: repo.language || "Markdown",
-            isPinned: dbProject?.isPinned || false,
             url: repo.html_url
         };
     }).filter((repo: any) => !repo.name.toLowerCase().includes("readme"));
 
-    // Sort: Pinned first, then by stars
-    const sortedProjects = projects.sort((a, b) => {
-        if (a.isPinned !== b.isPinned) return a.isPinned ? -1 : 1;
+    // Sort: by stars
+    const sortedProjects = projects.sort((a: any, b: any) => {
         return b.stars - a.stars;
     });
 
@@ -68,7 +56,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                         key={project.id}
                         href={project.url}
                         target="_blank"
-                        className={`group relative flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all overflow-hidden ${project.isPinned ? "md:col-span-2 auto-rows-[400px]" : ""}`}
+                        className={`group relative flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all overflow-hidden`}
                     >
                         {/* Hover overlay pattern */}
                         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
