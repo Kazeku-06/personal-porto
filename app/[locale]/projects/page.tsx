@@ -12,7 +12,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
     // Parallel fetch: Github repositories + Database metadata
     const [githubRepos, dbProjects] = await Promise.all([
-        getGithubProjects("naufal"), // REPLACE with your username
+        getGithubProjects("Kazeku-06"), // REPLACE with your username
         prisma.project.findMany()
     ]);
 
