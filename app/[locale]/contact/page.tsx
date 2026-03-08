@@ -18,7 +18,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
     ];
 
     return (
-        <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 z-10 relative">
+        <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12">
             <header className="mb-20">
                 <h1 className="text-5xl md:text-7xl font-black tracking-tighter">
                     {t("title")}
@@ -35,7 +35,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 - no-scrollbar untuk menyembunyikan scrollbar (opsional).
                 - isolation:isolate dan relative z-10 untuk memperbaiki bug mix-blend-mode cursor pada kontainer yang bisa di-scroll.
             */}
-            <div className="max-w-full overflow-x-auto pb-8 no-scrollbar relative z-10 isolate">
+            <div className="max-w-full overflow-x-auto pb-8 no-scrollbar">
                 {/* Grid System:
                     - grid-flow-col: Isi kolom ke bawah dulu.
                     - grid-rows-2: Maksimal 2 baris ke bawah.

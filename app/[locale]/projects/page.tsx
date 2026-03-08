@@ -2,7 +2,7 @@ import { Link } from "@/i18n/routing";
 import { ArrowUpRight, Github, Globe, GitCommit, FolderGit2 } from "lucide-react";
 import { getGithubProjects, getTotalCommits } from "@/lib/github";
 import { getTranslations } from "next-intl/server";
-import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiGreensock, SiPrisma, SiPostgresql, SiNodedotjs, SiFramer, SiShadcnui, SiLaravel, SiPhp, SiMysql, SiRust, SiPython, SiVuedotjs, SiSharp, SiJavascript, SiHtml5, SiCss, SiFlask, SiGit, SiGithub, SiDart, SiBootstrap, SiDocker } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiGreensock, SiPrisma, SiPostgresql, SiNodedotjs, SiFramer, SiShadcnui, SiLaravel, SiPhp, SiMysql, SiRust, SiPython, SiVuedotjs, SiSharp, SiJavascript, SiHtml5, SiCss, SiFlask, SiGit, SiGithub, SiDart, SiBootstrap, SiDocker, SiLaragon } from "react-icons/si";
 
 export const revalidate = 3600;
 
@@ -44,7 +44,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     });
 
     return (
-        <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 z-10 relative">
+        <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12">
             <header className="mb-16">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
@@ -98,7 +98,8 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                         { name: "Flask", icon: SiFlask },
                         { name: "Dart", icon: SiDart  },
                         { name: "Boostrap", icon: SiBootstrap },
-                        { name: "Docker", icon: SiDocker }
+                        { name: "Docker", icon: SiDocker },
+                        { name: "Laragon", icon: SiLaragon }
                     ].map((tech) => (
                         <span key={tech.name} className="flex items-center gap-3 px-5 py-3 md:px-6 md:py-4 rounded-full border border-white/10 bg-white/5 text-sm md:text-base font-mono opacity-80 hover:opacity-100 hover:bg-white/10 transition-all cursor-pointer">
                             <tech.icon size={20} className="md:w-6 md:h-6" />

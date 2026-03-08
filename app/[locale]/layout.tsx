@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -50,7 +49,6 @@ export default async function RootLayout({
           <div className="noise-overlay" />
           <CommandPalette />
           <SmoothScroll>
-            <CustomCursor />
             {children}
           </SmoothScroll>
         </NextIntlClientProvider>
