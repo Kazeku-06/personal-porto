@@ -106,10 +106,10 @@ export default function Home() {
 
         <div
           className="cmd-prompt flex items-center gap-3 text-[10px] md:text-xs opacity-40 hover:opacity-100 transition-opacity font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 order-1 md:order-2 cursor-pointer"
-          onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
+          onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: '/', metaKey: true }))}
         >
           <Command size={14} />
-          <span>CTRL + K</span>
+          <span>CTRL + /</span>
         </div>
       </footer>
     </div>
