@@ -30,18 +30,9 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
 
 
-            {/* Wrapper utama: 
-                - overflow-x-auto memungkinkan scroll jika kolom bertambah.
-                - no-scrollbar untuk menyembunyikan scrollbar (opsional).
-                - isolation:isolate dan relative z-10 untuk memperbaiki bug mix-blend-mode cursor pada kontainer yang bisa di-scroll.
-            */}
-            <div className="max-w-full overflow-x-auto pb-8 no-scrollbar">
-                {/* Grid System:
-                    - grid-flow-col: Isi kolom ke bawah dulu.
-                    - grid-rows-2: Maksimal 2 baris ke bawah.
-                    - w-max: Agar lebar container mengikuti isi (penting untuk horizontal scroll).
-                */}
-                <div className="grid grid-flow-col grid-rows-2 gap-6 w-max">
+            <div className="max-w-full pb-8">
+                {/* Grid System: Vertically stacked on mobile, expanding to more columns on larger screens */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     {socialLinks.map((social) => {
                         const Icon = social.icon;
                         return (
@@ -50,10 +41,8 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                                 href={social.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                /* w-[320px] md:w-[400px]: 
-                                   Menjaga lebar kartu tetap (rigid) agar tidak gepeng. 
-                                */
-                                className="group flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all cursor-pointer relative overflow-hidden h-48 w-[300px] sm:w-[350px] md:w-[400px]"
+                                /* Make card width 100% of the grid column */
+                                className="group flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all cursor-pointer relative overflow-hidden h-48 w-full"
                             >
                                 {/* Hover Effect Gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
