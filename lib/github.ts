@@ -8,17 +8,70 @@ export async function getGithubProjects(username: string) {
         headers.Authorization = `Bearer ${GITHUB_TOKEN}`;
     }
 
-    const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, {
-        headers,
-        next: { revalidate: 3600 },
-    });
+    try {
+        // 1. Fetch user's own repositories
+        const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, {
+            headers,
+            next: { revalidate: 3600 },
+        });
 
-    if (!res.ok) {
-        console.error("Failed to fetch GitHub projects");
+        if (!res.ok) {
+            console.error("Failed to fetch GitHub projects");
+            return [];
+        }
+
+        const ownedRepos = await res.json();
+
+        // 2. Find repositories user has contributed to via commit search
+        const commitsRes = await fetch(`https://api.github.com/search/commits?q=author:${username}&per_page=100`, {
+            headers: {
+                ...headers,
+                Accept: "application/vnd.github.cloak-preview+json",
+            },
+            next: { revalidate: 3600 },
+        });
+
+        let contributedRepos = [];
+
+        if (commitsRes.ok) {
+            const commitsData = await commitsRes.json();
+
+            // Extract unique full_names of repositories not owned by the user
+            const contributedRepoNames = [
+                ...new Set(
+                    (commitsData.items || [])
+                        .map((item: any) => item.repository.full_name)
+                        .filter((fullName: string) => !fullName.toLowerCase().startsWith(`${username.toLowerCase()}/`))
+                )
+            ] as string[];
+
+            // 3. Fetch full repository details for contributed repos
+            const contributedRepoPromises = contributedRepoNames.map(async (fullName: string) => {
+                const repoRes = await fetch(`https://api.github.com/repos/${fullName}`, {
+                    headers,
+                    next: { revalidate: 3600 },
+                });
+                if (repoRes.ok) {
+                    return repoRes.json();
+                }
+                return null;
+            });
+
+            const resolvedRepos = await Promise.all(contributedRepoPromises);
+            contributedRepos = resolvedRepos.filter(repo => repo !== null);
+        }
+
+        // 4. Combine and return
+        // Keep checking for duplicates just in case
+        const allRepos = [...ownedRepos, ...contributedRepos];
+        const uniqueRepos = Array.from(new Map(allRepos.map(repo => [repo.id, repo])).values());
+
+        return uniqueRepos;
+
+    } catch (error) {
+        console.error("Error fetching projects:", error);
         return [];
     }
-
-    return res.json();
 }
 
 export async function getTotalCommits(username: string) {
@@ -38,7 +91,7 @@ export async function getTotalCommits(username: string) {
         });
 
         if (!res.ok) {
-            return 0; 
+            return 0;
         }
 
         const data = await res.json();
