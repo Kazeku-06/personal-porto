@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
 import { Link } from "@/i18n/routing";
 import { Github, Linkedin, Instagram, Command } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -9,12 +10,21 @@ import { useTranslations } from "next-intl";
 export default function Home() {
   const t = useTranslations("Home");
   const textRef = useRef<HTMLHeadingElement>(null);
+  const subtitleContainerRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const roleRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(TextPlugin);
+    const subtitleText = t("subtitle");
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
+
+      // Clear any pre-existing text in the typed ref to avoid flash
+      if (subtitleRef.current) {
+        subtitleRef.current.innerText = "";
+      }
 
       tl.from(textRef.current, {
         y: 40,
@@ -36,7 +46,7 @@ export default function Home() {
           "-=0.8",
         )
         .from(
-          subtitleRef.current,
+          subtitleContainerRef.current,
           {
             y: 20,
             opacity: 0,
@@ -45,6 +55,15 @@ export default function Home() {
             clearProps: "all",
           },
           "-=0.6",
+        )
+        .to(
+          subtitleRef.current,
+          {
+            text: subtitleText,
+            duration: 1.5,
+            ease: "none",
+          },
+          "-=0.2",
         )
         .from(
           ".nav-item, .social-icon, .cmd-prompt",
@@ -56,12 +75,12 @@ export default function Home() {
             ease: "power2.out",
             clearProps: "all",
           },
-          "-=0.5",
+          "-=1.2",
         );
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [t]);
 
   return (
     <div className="relative flex flex-col h-[100svh] w-full overflow-hidden">
@@ -91,12 +110,20 @@ export default function Home() {
             {t("title2")}
           </span>
         </h1>
-        <p
-          ref={subtitleRef}
-          className="max-w-md text-xs md:text-sm opacity-50 leading-relaxed font-mono mt-4"
-        >
-          {t("subtitle")}
-        </p>
+        <div ref={subtitleContainerRef} className="relative max-w-md mt-4">
+          {/* Invisible placeholder to maintain the correct height and width */}
+          <p
+            className="invisible text-xs md:text-sm leading-relaxed font-mono px-4"
+            aria-hidden="true"
+          >
+            {t("subtitle")}
+          </p>
+          {/* Actual animating text */}
+          <p
+            ref={subtitleRef}
+            className="absolute top-0 left-0 w-full text-xs md:text-sm opacity-50 leading-relaxed font-mono px-4"
+          ></p>
+        </div>
       </main>
 
       <footer className="absolute bottom-6 md:bottom-10 right-6 md:right-10 flex items-center gap-6 z-10 border-none md:flex-row flex-col">
