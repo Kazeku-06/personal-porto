@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Link } from "@/i18n/routing";
-import { Github, Linkedin, Twitter, Command } from "lucide-react";
+import { Github, Linkedin, Instagram, Command } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
         duration: 1.2,
         ease: "power4.out",
         delay: 0.2,
-        clearProps: "all"
+        clearProps: "all",
       })
         .from(
           roleRef.current,
@@ -31,9 +31,9 @@ export default function Home() {
             opacity: 0,
             duration: 1,
             ease: "power3.out",
-            clearProps: "all"
+            clearProps: "all",
           },
-          "-=0.8"
+          "-=0.8",
         )
         .from(
           subtitleRef.current,
@@ -42,9 +42,9 @@ export default function Home() {
             opacity: 0,
             duration: 1,
             ease: "power3.out",
-            clearProps: "all"
+            clearProps: "all",
           },
-          "-=0.6"
+          "-=0.6",
         )
         .from(
           ".nav-item, .social-icon, .cmd-prompt",
@@ -54,9 +54,9 @@ export default function Home() {
             stagger: 0.1,
             duration: 0.8,
             ease: "power2.out",
-            clearProps: "all"
+            clearProps: "all",
           },
-          "-=0.5"
+          "-=0.5",
         );
     });
 
@@ -66,14 +66,20 @@ export default function Home() {
   return (
     <div className="relative flex flex-col h-[100svh] w-full overflow-hidden">
       <header className="absolute top-0 w-full p-6 md:p-10 flex justify-between items-center z-10">
-        <Link href="/" className="nav-item font-mono text-sm tracking-widest font-bold flex items-center gap-2">
+        <Link
+          href="/"
+          className="nav-item font-mono text-sm tracking-widest font-bold flex items-center gap-2"
+        >
           <span className="w-2 h-2 rounded-full bg-[#FDFCF0] animate-pulse"></span>
           NAUFAL.
         </Link>
       </header>
 
       <main className="flex-1 flex flex-col items-center justify-center text-center px-4 z-10">
-        <p ref={roleRef} className="text-[10px] md:text-xs tracking-[0.4em] uppercase mb-6 md:mb-8 opacity-60">
+        <p
+          ref={roleRef}
+          className="text-[10px] md:text-xs tracking-[0.4em] uppercase mb-6 md:mb-8 opacity-60"
+        >
           {t("role")}
         </p>
         <h1
@@ -81,7 +87,9 @@ export default function Home() {
           className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 lg:mb-8 leading-[0.9]"
         >
           {t("title1")} <br />
-          <span className="opacity-90 italic font-serif font-medium">{t("title2")}</span>
+          <span className="opacity-90 italic font-serif font-medium">
+            {t("title2")}
+          </span>
         </h1>
         <p
           ref={subtitleRef}
@@ -93,20 +101,47 @@ export default function Home() {
 
       <footer className="absolute bottom-6 md:bottom-10 right-6 md:right-10 flex items-center gap-6 z-10 border-none md:flex-row flex-col">
         <div className="flex gap-8 order-2 md:order-1 relative z-50">
-          <a href="https://github.com/Kazeku-06" target="_blank" className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block">
-            <Github size={20} strokeWidth={1.5} className="pointer-events-none" />
+          <a
+            href="https://github.com/Kazeku-06"
+            target="_blank"
+            className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block"
+          >
+            <Github
+              size={20}
+              strokeWidth={1.5}
+              className="pointer-events-none"
+            />
           </a>
-          <a href="https://www.linkedin.com/in/naufal-dzaky-7897b1388/" className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block">
-            <Linkedin size={20} strokeWidth={1.5} className="pointer-events-none" />
+          <a
+            href="https://www.linkedin.com/in/naufal-dzaky-7897b1388/"
+            className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block"
+          >
+            <Linkedin
+              size={20}
+              strokeWidth={1.5}
+              className="pointer-events-none"
+            />
           </a>
-          <a href="#" className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block">
-            <Twitter size={20} strokeWidth={1.5} className="pointer-events-none" />
+          <a
+            href="https://www.instagram.com/nhhdky"
+            target="_blank"
+            className="social-icon hover:opacity-80 hover:scale-110 transition-all cursor-pointer inline-block"
+          >
+            <Instagram
+              size={20}
+              strokeWidth={1.5}
+              className="pointer-events-none"
+            />
           </a>
         </div>
 
         <div
           className="cmd-prompt flex items-center gap-3 text-[10px] md:text-xs opacity-40 hover:opacity-100 transition-opacity font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 order-1 md:order-2 cursor-pointer"
-          onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: '/', metaKey: true }))}
+          onClick={() =>
+            document.dispatchEvent(
+              new KeyboardEvent("keydown", { key: "/", metaKey: true }),
+            )
+          }
         >
           <Command size={14} />
           <span>CTRL + /</span>
