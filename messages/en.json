@@ -3,7 +3,7 @@
         "title1": "Crafting Digital",
         "title2": "Experiences.",
         "subtitle": "High-end minimalist interactive portfolio with modern architecture.",
-        "role": "Fullstack Developer & Backend Specialist",
+        "role": "Fullstack Developer & Backend Developer",
         "work": "Works",
         "about": "About",
         "contact": "Contact"
@@ -14,6 +14,8 @@
     },
     "About": {
         "title": "About Me",
+        "status": "Available for Work",
+        "techStack": "Tech Stack Arsenal",
         "description": "A Software Engineering student focused on building robust backend systems and efficient data architectures.",
         "experience": "Academic Journey",
         "back": "Back",

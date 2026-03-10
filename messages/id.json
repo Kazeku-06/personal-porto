@@ -3,7 +3,7 @@
         "title1": "Mewujudkan Visi",
         "title2": "Digital.",
         "subtitle": "Portofolio interaktif dengan estetika minimalis dan arsitektur modern.",
-        "role": "Backend Enthusiast & Software Engineering Student",
+        "role": "Software Engineering Student & Backend Developer",
         "work": "Karya",
         "about": "Tentang",
         "contact": "Kontak"
@@ -14,6 +14,8 @@
     },
     "About": {
         "title": "Tentang Saya",
+        "status": "Terbuka untuk Kolaborasi",
+        "techStack": "Keahlian & Teknologi",
         "description": "Siswa Rekayasa Perangkat Lunak yang berfokus pada efisiensi sistem back-end dan arsitektur data.",
         "experience": "Perjalanan Akademik",
         "back": "Kembali",
