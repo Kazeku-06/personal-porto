@@ -55,8 +55,10 @@ export default async function ProjectsPage({
   });
 
   return (
-    <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12">
-      <header className="mb-16">
+    <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 relative overflow-hidden">
+      <div className="absolute top-[10%] left-[-10%] w-[50vw] h-[50vw] bg-white/[0.015] blur-[150px] rounded-full pointer-events-none"></div>
+
+      <header className="mb-16 animate-fade-up">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h1 className="text-4xl md:text-5xl font-black tracking-tighter">
@@ -78,28 +80,30 @@ export default async function ProjectsPage({
         </div>
       </header>
 
-      <section className="mb-20">
+      <section className="mb-20 animate-fade-up" style={{ animationDelay: '200ms' }}>
         <h2 className="text-[10px] uppercase font-mono tracking-[0.3em] opacity-40 mb-8">
           Tech Stack
         </h2>
         <TechStackList />
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min">
-        {sortedProjects.map((project, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min relative z-10">
+        {sortedProjects.map((project: any, i: number) => (
           <div
             key={project.id}
-            className={`group relative flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all overflow-hidden h-full min-h-[340px]`}
+            className="group relative flex flex-col justify-between p-8 rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.02] to-transparent hover:bg-white/[0.05] hover:border-white/[0.15] hover:shadow-[0_0_30px_rgba(255,255,255,0.02)] transition-all duration-500 overflow-hidden h-full min-h-[340px] animate-fade-up fill-mode-both"
+            style={{ animationDelay: `${300 + (i * 100)}ms` }}
           >
             {/* Hover overlay pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            <div className="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-white/10 blur-[60px] rounded-full opacity-0 group-hover:opacity-60 transition duration-1000 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-            <div className="flex justify-between items-start z-10">
-              <div className="max-w-[80%]">
-                <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-4 group-hover:text-white transition-colors capitalize">
+            <div className="flex justify-between items-start z-10 w-full gap-4">
+              <div className="max-w-[90%]">
+                <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-4 text-white/80 group-hover:text-white transition-colors capitalize">
                   {project.name.replace(/-/g, " ")}
                 </h2>
-                <p className="text-xs md:text-sm opacity-60 font-mono line-clamp-2 md:line-clamp-3 leading-relaxed">
+                <p className="text-xs md:text-sm opacity-60 font-mono line-clamp-2 md:line-clamp-3 leading-relaxed group-hover:opacity-80 transition-opacity duration-500">
                   {project.desc}
                 </p>
               </div>

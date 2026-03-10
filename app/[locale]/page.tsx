@@ -84,6 +84,9 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col h-[100svh] w-full overflow-hidden">
+      {/* Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] bg-white/[0.015] blur-[150px] rounded-full pointer-events-none"></div>
+
       <header className="absolute top-0 w-full p-6 md:p-10 flex justify-between items-center z-10">
         <Link
           href="/"
