@@ -14,8 +14,6 @@
     },
     "About": {
         "title": "About Me",
-        "status": "Available for Work",
-        "techStack": "Tech Stack Arsenal",
         "description": "A Software Engineering student focused on building robust backend systems and efficient data architectures.",
         "experience": "Academic Journey",
         "back": "Back",
