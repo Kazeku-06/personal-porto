@@ -1,27 +1,52 @@
 {
     "Home": {
-        "title1": "Building Digital",
-        "title2": "Experience.",
-        "subtitle": "High-end minimalist interactive portfolio powered by modern architecture.",
-        "role": "Fullstack Developer & Backend Developer",
-        "work": "Work",
+        "title1": "Crafting Digital",
+        "title2": "Experiences.",
+        "subtitle": "High-end minimalist interactive portfolio with modern architecture.",
+        "role": "Fullstack Developer & Backend Specialist",
+        "work": "Works",
         "about": "About",
         "contact": "Contact"
     },
     "Projects": {
-        "title": "My Projects",
-        "subtitle": "A collection of digital products and experiments.",
-        "back": "Back"
+        "title": "Selected Works",
+        "subtitle": "A collection of digital products and technical experiments."
     },
     "About": {
         "title": "About Me",
-        "description": "\"I'm a fullstack developer focused on creating immersive, highly-performant digital experiences. My work bridges the gap between engineering and design.\"",
-        "experience": "Experience",
-        "back": "Back"
+        "description": "A Software Engineering student focused on building robust backend systems and efficient data architectures.",
+        "experience": "Academic Journey",
+        "back": "Back",
+        "experienceList": [
+            {
+                "title": "Elementary School",
+                "company": "SDN Kotalama 4 Malang",
+                "period": "2016 - 2021",
+                "description": "Built foundational cognitive skills and social emotional development."
+            },
+            {
+                "title": "Junior High School",
+                "company": "SMPN 09 Malang",
+                "period": "2021 - 2024",
+                "description": "Developed critical thinking and problem-solving logic through mathematics and science."
+            },
+            {
+                "title": "Vocational High School",
+                "company": "SMKN 6 Malang - Software Engineering",
+                "period": "2024 - 2027",
+                "description": "Deep-diving into programming logic, database management, and scalable web development."
+            },
+            {
+                "title": "Internship / Practical Work",
+                "company": "PT. Sekawan Media Informatika",
+                "period": "2026 - 2027",
+                "description": "Gaining hands-on experience in professional software development lifecycles and contributing to industry-grade projects."
+            }
+        ]
     },
     "Contact": {
-        "title": "Social Media",
-        "subtitle": "Connect with me online",
+        "title": "Let's Connect",
+        "subtitle": "Open for collaborations or just a friendly chat.",
         "back": "Back"
     }
 }

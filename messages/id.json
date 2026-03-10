@@ -1,27 +1,52 @@
 {
     "Home": {
-        "title1": "Menunjukan Pengalaman",
+        "title1": "Mewujudkan Visi",
         "title2": "Digital.",
-        "subtitle": "Portofolio interaktif minimalis kelas atas dengan arsitektur modern.",
-        "role": "Fullstack Developer & Backend Developer",
+        "subtitle": "Portofolio interaktif dengan estetika minimalis dan arsitektur modern.",
+        "role": "Backend Enthusiast & Software Engineering Student",
         "work": "Karya",
         "about": "Tentang",
         "contact": "Kontak"
     },
     "Projects": {
-        "title": "Karya Saya",
-        "subtitle": "Kumpulan produk digital dan eksperimen.",
-        "back": "Kembali"
+        "title": "Eksplorasi Karya",
+        "subtitle": "Kumpulan solusi digital dan eksperimen teknis."
     },
     "About": {
         "title": "Tentang Saya",
-        "description": "\"Saya seorang fullstack developer yang fokus pada penciptaan pengalaman digital yang imersif dan berkinerja tinggi. Pekerjaan saya menjembatani rekayasa dan desain.\"",
-        "experience": "Pengalaman",
-        "back": "Kembali"
+        "description": "Siswa Rekayasa Perangkat Lunak yang berfokus pada efisiensi sistem back-end dan arsitektur data.",
+        "experience": "Perjalanan Akademik",
+        "back": "Kembali",
+        "experienceList": [
+            {
+                "title": "Sekolah Dasar",
+                "company": "SDN Kotalama 4 Malang",
+                "period": "2016 - 2021",
+                "description": "Membangun landasan dasar dalam kemampuan kognitif dan interaksi sosial."
+            },
+            {
+                "title": "Sekolah Menengah Pertama",
+                "company": "SMPN 09 Malang",
+                "period": "2021 - 2024",
+                "description": "Mulai mengasah pola pikir kritis dan logika melalui kompetisi matematika dan sains."
+            },
+            {
+                "title": "Sekolah Menengah Kejuruan",
+                "company": "SMKN 6 Malang - RPL",
+                "period": "2024 - 2027",
+                "description": "Mendalami arsitektur perangkat lunak, manajemen basis data, dan pengembangan web yang skalabel."
+            },
+            {
+                "title": "Praktik Kerja Lapangan",
+                "company": "PT. Sekawan Media Informatika",
+                "period": "2026 - 2027",
+                "description": "Berkontribusi dalam lingkungan profesional untuk mengembangkan solusi perangkat lunak berbasis industri."
+            }
+        ]
     },
     "Contact": {
-        "title": "Sosial Media",
-        "subtitle": "Terhubung bersama saya",
+        "title": "Mari Terhubung",
+        "subtitle": "Buka diskusi untuk kolaborasi atau sekadar menyapa.",
         "back": "Kembali"
     }
 }

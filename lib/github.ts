@@ -9,7 +9,7 @@ export async function getGithubProjects(username: string) {
     }
 
     try {
-        // 1. Fetch user's own repositories
+
         const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, {
             headers,
             next: { revalidate: 3600 },
@@ -36,7 +36,7 @@ export async function getGithubProjects(username: string) {
         if (commitsRes.ok) {
             const commitsData = await commitsRes.json();
 
-            // Extract unique full_names of repositories not owned by the user
+
             const contributedRepoNames = [
                 ...new Set(
                     (commitsData.items || [])
@@ -45,7 +45,7 @@ export async function getGithubProjects(username: string) {
                 )
             ] as string[];
 
-            // 3. Fetch full repository details for contributed repos
+
             const contributedRepoPromises = contributedRepoNames.map(async (fullName: string) => {
                 const repoRes = await fetch(`https://api.github.com/repos/${fullName}`, {
                     headers,
@@ -61,8 +61,7 @@ export async function getGithubProjects(username: string) {
             contributedRepos = resolvedRepos.filter(repo => repo !== null);
         }
 
-        // 4. Combine and return
-        // Keep checking for duplicates just in case
+
         const allRepos = [...ownedRepos, ...contributedRepos];
         const uniqueRepos = Array.from(new Map(allRepos.map(repo => [repo.id, repo])).values());
 

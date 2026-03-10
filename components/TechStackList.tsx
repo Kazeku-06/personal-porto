@@ -29,6 +29,7 @@ import {
     SiBootstrap,
     SiDocker,
     SiLaragon,
+    SiPostman,
 } from "react-icons/si";
 
 export default function TechStackList() {
@@ -62,6 +63,7 @@ export default function TechStackList() {
         { name: "Boostrap", icon: SiBootstrap },
         { name: "Docker", icon: SiDocker },
         { name: "Laragon", icon: SiLaragon },
+        { name: "Postman", icon: SiPostman },
     ];
 
     const initialMobileCount = 3; // Number of items to show initially on mobile
