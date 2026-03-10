@@ -78,9 +78,9 @@ export default function TechStackList() {
                         onClick={() => {
                             if (showAll) setShowAll(false);
                         }}
-                        className={`items-center gap-3 px-5 py-3 md:px-6 md:py-4 rounded-full border border-white/5 bg-white/[0.03] text-sm md:text-base font-mono opacity-80 hover:opacity-100 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:scale-105 transition-all duration-300 cursor-pointer ${isHiddenOnMobile ? "hidden md:flex" : "flex"}`}
+                        className={`items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-4 rounded-full border border-white/5 bg-white/[0.03] text-[11px] md:text-base font-mono opacity-80 hover:opacity-100 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:scale-105 transition-all duration-300 cursor-pointer ${isHiddenOnMobile ? "hidden md:flex" : "flex"}`}
                     >
-                        <tech.icon size={20} className="md:w-6 md:h-6" />
+                        <tech.icon className="w-4 h-4 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                         {tech.name}
                     </span>
                 );

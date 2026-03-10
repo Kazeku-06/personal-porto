@@ -58,21 +58,21 @@ export default async function ProjectsPage({
     <div className="min-h-[100svh] w-full pt-32 pb-20 px-6 md:px-12 relative overflow-hidden">
       <div className="absolute top-[10%] left-[-10%] w-[50vw] h-[50vw] bg-white/[0.015] blur-[150px] rounded-full pointer-events-none"></div>
 
-      <header className="mb-16 animate-fade-up">
+      <header className="mb-12 md:mb-16 animate-fade-up">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h1 className="text-4xl md:text-5xl font-black tracking-tighter">
               {t("title")}
             </h1>
-            <p className="text-sm opacity-60 font-mono mt-4">{t("subtitle")}</p>
+            <p className="text-xs md:text-sm opacity-60 font-mono mt-4">{t("subtitle")}</p>
           </div>
 
-          <div className="flex gap-4 text-xs font-mono uppercase tracking-widest opacity-60 mb-2">
-            <div className="flex items-center gap-2 border border-white/10 rounded-full px-4 py-2 bg-white/5">
+          <div className="flex flex-wrap gap-3 md:gap-4 text-[10px] md:text-xs font-mono uppercase tracking-widest opacity-60 mb-2">
+            <div className="flex items-center gap-2 border border-white/10 rounded-full px-3 md:px-4 py-1.5 md:py-2 bg-white/5">
               <FolderGit2 size={14} />
               <span>{sortedProjects.length} Repositories</span>
             </div>
-            <div className="flex items-center gap-2 border border-white/10 rounded-full px-4 py-2 bg-white/5">
+            <div className="flex items-center gap-2 border border-white/10 rounded-full px-3 md:px-4 py-1.5 md:py-2 bg-white/5">
               <GitCommit size={14} />
               <span>{totalCommits} Commits</span>
             </div>
@@ -91,7 +91,7 @@ export default async function ProjectsPage({
         {sortedProjects.map((project: any, i: number) => (
           <div
             key={project.id}
-            className="group relative flex flex-col justify-between p-8 rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.02] to-transparent hover:bg-white/[0.05] hover:border-white/[0.15] hover:shadow-[0_0_30px_rgba(255,255,255,0.02)] transition-all duration-500 overflow-hidden h-full min-h-[340px] animate-fade-up fill-mode-both"
+            className="group relative flex flex-col justify-between p-6 md:p-8 rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.02] to-transparent hover:bg-white/[0.05] hover:border-white/[0.15] hover:shadow-[0_0_30px_rgba(255,255,255,0.02)] transition-all duration-500 overflow-hidden h-full min-h-[300px] md:min-h-[340px] animate-fade-up fill-mode-both"
             style={{ animationDelay: `${300 + (i * 100)}ms` }}
           >
             {/* Hover overlay pattern */}

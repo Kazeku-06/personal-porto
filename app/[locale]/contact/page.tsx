@@ -45,7 +45,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 /* Make card width 100% of the grid column */
-                                className="group flex flex-col justify-between p-8 rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.02] to-transparent hover:bg-white/[0.05] hover:border-white/[0.15] hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] transition-all duration-500 cursor-pointer relative overflow-hidden h-48 w-full animate-fade-up fill-mode-both"
+                                className="group flex flex-col justify-between p-6 md:p-8 rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.02] to-transparent hover:bg-white/[0.05] hover:border-white/[0.15] hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] transition-all duration-500 cursor-pointer relative overflow-hidden h-40 md:h-48 w-full animate-fade-up fill-mode-both"
                                 style={{ animationDelay: `${200 + (idx * 100)}ms` }}
                             >
                                 {/* Hover Effect Gradient */}
