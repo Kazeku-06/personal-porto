@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: porto-nopal-app
+    image: porto-gw:latest
+    ports:
+      - "3579:3579"
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    environment:
+      - PORT=3579
+      - NODE_ENV=production

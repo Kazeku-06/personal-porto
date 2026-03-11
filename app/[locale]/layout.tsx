@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Naufal's Portfolio",
+  title: "nopallgtg",
   description: "High-End Minimalist Interactive Portfolio powered by modern fullstack architecture.",
 };
 

@@ -6,6 +6,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { Link } from "@/i18n/routing";
 import { Github, Linkedin, Instagram, Command } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Logo } from "@/components/Logo";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -92,7 +93,7 @@ export default function Home() {
           href="/"
           className="nav-item font-mono text-sm tracking-widest font-bold flex items-center gap-2"
         >
-          <span className="w-2 h-2 rounded-full bg-[#FDFCF0] animate-pulse"></span>
+          <Logo className="w-5 h-5 text-[#FDFCF0]" />
           NAUFAL.
         </Link>
       </header>
