@@ -1,52 +1,52 @@
 {
-    "Home": {
-        "title1": "Crafting Digital",
-        "title2": "Experiences.",
-        "subtitle": "High-end minimalist interactive portfolio with modern architecture.",
-        "role": "Fullstack Developer & Backend Developer",
-        "work": "Works",
-        "about": "About",
-        "contact": "Contact"
-    },
-    "Projects": {
-        "title": "Selected Works",
-        "subtitle": "A collection of digital products and technical experiments."
-    },
-    "About": {
-        "title": "About Me",
-        "description": "A Software Engineering student focused on building robust backend systems and efficient data architectures.",
-        "experience": "Academic Journey",
-        "back": "Back",
-        "experienceList": [
-            {
-                "title": "Elementary School",
-                "company": "SDN Kotalama 4 Malang",
-                "period": "2016 - 2021",
-                "description": "Built foundational cognitive skills and social emotional development."
-            },
-            {
-                "title": "Junior High School",
-                "company": "SMPN 09 Malang",
-                "period": "2021 - 2024",
-                "description": "Developed critical thinking and problem-solving logic through mathematics and science."
-            },
-            {
-                "title": "Vocational High School",
-                "company": "SMKN 6 Malang - Software Engineering",
-                "period": "2024 - 2027",
-                "description": "Deep-diving into programming logic, database management, and scalable web development."
-            },
-            {
-                "title": "Internship / Practical Work",
-                "company": "PT. Sekawan Media Informatika",
-                "period": "2026 - 2027",
-                "description": "Gaining hands-on experience in professional software development lifecycles and contributing to industry-grade projects."
-            }
-        ]
-    },
-    "Contact": {
-        "title": "Let's Connect",
-        "subtitle": "Open for collaborations or just a friendly chat.",
-        "back": "Back"
-    }
+  "Home": {
+    "title1": "Runs 50K Marathons,",
+    "title2": "Afraid of Error 404.",
+    "subtitle": "Building systems more stable than my legs after a 1,000m elevation gain.",
+    "role": "Software Engineering Student | Backend Enthusiast",
+    "work": "My Crafts",
+    "about": "The Nerd",
+    "contact": "Say Hello"
+  },
+  "Projects": {
+    "title": "The Lab of Experiments",
+    "subtitle": "A collection of code that somehow works on my machine."
+  },
+  "About": {
+    "title": "Who Am I?",
+    "description": "A Software Engineering student from SMKN 6 Malang who speaks SQL better than human languages. Focused on backend development because UI can be faked with CSS, but data integrity is forever.",
+    "experience": "Academic Survival",
+    "back": "Escape",
+    "experienceList": [
+      {
+        "title": "Primary School",
+        "company": "SDN Kotalama 4 Malang",
+        "period": "2016 - 2021",
+        "description": "Mastering the basics of cognitive skills and the art of asking for pocket money."
+      },
+      {
+        "title": "Junior High School",
+        "company": "SMPN 09 Malang",
+        "period": "2021 - 2024",
+        "description": "Questioning life's big mysteries: Like why we're still looking for 'x' when it clearly doesn't want to be found."
+      },
+      {
+        "title": "Vocational High School",
+        "company": "SMKN 6 Malang - Software Engineering",
+        "period": "2024 - 2027",
+        "description": "Learning to build scalable systems, but still getting asked to fix the neighbor's printer."
+      },
+      {
+        "title": "Internship Program",
+        "company": "PT. Sekawan Media Informatika",
+        "period": "2026 - 2027",
+        "description": "Professional training: Trying not to panic when deploying to production on a Friday afternoon."
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Let’s Talk Code",
+    "subtitle": "Open for collaborations or just sharing Stack Overflow links over coffee.",
+    "back": "Back to Reality"
+  }
 }

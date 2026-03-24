@@ -1,52 +1,52 @@
 {
-    "Home": {
-        "title1": "Mewujudkan Visi",
-        "title2": "Digital.",
-        "subtitle": "Portofolio interaktif dengan estetika minimalis dan arsitektur modern.",
-        "role": "Software Engineering Student & Backend Developer",
-        "work": "Karya",
-        "about": "Tentang",
-        "contact": "Kontak"
-    },
-    "Projects": {
-        "title": "Eksplorasi Karya",
-        "subtitle": "Kumpulan solusi digital dan eksperimen teknis."
-    },
-    "About": {
-        "title": "Tentang Saya",
-        "description": "Siswa Rekayasa Perangkat Lunak yang berfokus pada efisiensi sistem back-end dan arsitektur data.",
-        "experience": "Perjalanan Akademik",
-        "back": "Kembali",
-        "experienceList": [
-            {
-                "title": "Sekolah Dasar",
-                "company": "SDN Kotalama 4 Malang",
-                "period": "2016 - 2021",
-                "description": "Membangun landasan dasar dalam kemampuan kognitif dan interaksi sosial."
-            },
-            {
-                "title": "Sekolah Menengah Pertama",
-                "company": "SMPN 09 Malang",
-                "period": "2021 - 2024",
-                "description": "Mulai mengasah pola pikir kritis dan logika melalui kompetisi matematika dan sains."
-            },
-            {
-                "title": "Sekolah Menengah Kejuruan",
-                "company": "SMKN 6 Malang - RPL",
-                "period": "2024 - 2027",
-                "description": "Mendalami arsitektur perangkat lunak, manajemen basis data, dan pengembangan web yang skalabel."
-            },
-            {
-                "title": "Praktik Kerja Lapangan",
-                "company": "PT. Sekawan Media Informatika",
-                "period": "2026 - 2027",
-                "description": "Berkontribusi dalam lingkungan profesional untuk mengembangkan solusi perangkat lunak berbasis industri."
-            }
-        ]
-    },
-    "Contact": {
-        "title": "Mari Terhubung",
-        "subtitle": "Buka diskusi untuk kolaborasi atau sekadar menyapa.",
-        "back": "Kembali"
-    }
+  "Home": {
+    "title1": "Kuat Lari 50 KM,",
+    "title2": "Lemah Lihat Error.",
+    "subtitle": "Membangun sistem yang lebih stabil daripada mental pas nanjak 1.000 meter.",
+    "role": "Software Engineering Student | Backend Developer",
+    "work": "Karya (Bukan Copas)",
+    "about": "Tentang",
+    "contact": "Panggil Saya"
+  },
+  "Projects": {
+    "title": "Laboratorium Eksperimen",
+    "subtitle": "Kumpulan baris kode yang ajaibnya bisa jalan tanpa error 500."
+  },
+  "About": {
+    "title": "Siapa Saya?",
+    "description": "Siswa RPL SMKN 6 Malang yang lebih sering ngobrol sama database daripada sama manusia. Fokus di backend karena penampilan luar bisa dimanipulasi CSS, tapi kejujuran data ada di query.",
+    "experience": "Penderitaan Akademik",
+    "back": "Kabur",
+    "experienceList": [
+      {
+        "title": "Sekolah Dasar",
+        "company": "SDN Kotalama 4 Malang",
+        "period": "2016 - 2021",
+        "description": "Membangun landasan dasar dalam kemampuan kognitif dan cara meminta jajan yang efektif."
+      },
+      {
+        "title": "Sekolah Menengah Pertama",
+        "company": "SMPN 09 Malang",
+        "period": "2021 - 2024",
+        "description": "Mulai mengasah pola pikir kritis: Kenapa x harus dicari kalau sudah hilang?"
+      },
+      {
+        "title": "Sekolah Menengah Kejuruan",
+        "company": "SMKN 6 Malang - RPL",
+        "period": "2024 - 2027",
+        "description": "Belajar bikin aplikasi keren, tapi tetep aja disuruh benerin printer tetangga."
+      },
+      {
+        "title": "Praktik Kerja Lapangan",
+        "company": "PT. Sekawan Media Informatika",
+        "period": "2026 - 2027",
+        "description": "Belajar jadi profesional: Berusaha tidak panik saat deploy ke production di hari Jumat."
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Mari Berghibah Kode",
+    "subtitle": "Terbuka untuk kolaborasi atau sekadar berbagi link Stack Overflow.",
+    "back": "Kembali ke Kenyataan"
+  }
 }
