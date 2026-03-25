@@ -31,6 +31,7 @@ import {
     SiLaragon,
     SiPostman,
     SiLivewire,
+    SiFigma,
 } from "react-icons/si";
 
 export default function TechStackList() {
@@ -66,6 +67,7 @@ export default function TechStackList() {
         { name: "Laragon", icon: SiLaragon },
         { name: "Postman", icon: SiPostman },
         { name: "Livewire", icon: SiLivewire },
+        { name: "Figma", icon: SiFigma },
     ];
 
     const initialMobileCount = 3; // Number of items to show initially on mobile
