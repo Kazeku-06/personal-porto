@@ -30,18 +30,34 @@ export default async function ProjectsPage({
 
   const reposArray = Array.isArray(githubRepos) ? githubRepos : [];
 
-  const projects = reposArray
-    .map((repo: any) => ({
-      id: repo.id.toString(),
-      name: repo.name,
-      desc: repo.description || "No description provided.",
-      stars: repo.stargazers_count,
-      language: repo.language || "Markdown",
-      url: repo.html_url,
-      homepage: repo.homepage,
-    }))
-    .filter((repo) => !repo.name.toLowerCase().includes("readme"))
-    .sort((a, b) => b.stars - a.stars);
+  // Manual Projects (Private / Hidden Repo)
+  const manualProjects = [
+    {
+      id: "catur jaya mandiri tour and travel",
+      name: "catur jaya mandiri tour and travel",
+      desc: "Website untuk Tour and Travel",
+      stars: 0,
+      language: "TypeScript",
+      url: "", // Leave empty to disable the Source button
+      homepage: "https://caturjayamandiritourandtravel.com/",
+    },
+  ];
+
+  // Combine data
+  const projects = [
+    ...manualProjects,
+    ...reposArray
+      .map((repo: any) => ({
+        id: repo.id.toString(),
+        name: repo.name,
+        desc: repo.description || "No description provided.",
+        stars: repo.stargazers_count,
+        language: repo.language || "Markdown",
+        url: repo.html_url,
+        homepage: repo.homepage,
+      }))
+      .filter((repo) => !repo.name.toLowerCase().includes("readme")),
+  ].sort((a: any, b: any) => b.stars - a.stars);
 
   return (
     <div className="min-h-[100svh] w-full relative overflow-hidden bg-black">
@@ -148,14 +164,16 @@ export default async function ProjectsPage({
                     </div>
 
                     <div className="flex gap-2">
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 py-2.5 text-[11px] font-mono border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 rounded-xl transition-all duration-300"
-                      >
-                        <Github size={13} /> Source
-                      </a>
+                      {project.url ? (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-2 py-2.5 text-[11px] font-mono border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 rounded-xl transition-all duration-300"
+                        >
+                          <Github size={13} /> Source
+                        </a>
+                      ) : null}
                       {project.homepage && (
                         <a
                           href={project.homepage.startsWith("http") ? project.homepage : `https://${project.homepage}`}
