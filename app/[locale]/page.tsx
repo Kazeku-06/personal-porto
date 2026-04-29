@@ -155,18 +155,6 @@ export default function Home() {
         
         {/* Hero Text */}
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          
-          {/* Role Badge */}
-          <div className="flex justify-center">
-            <p
-              ref={roleRef}
-              className="inline-flex items-center gap-2 text-[10px] md:text-xs tracking-[0.35em] uppercase px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 font-mono"
-            >
-              <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-              {t("role")}
-            </p>
-          </div>
-
           {/* Main Title */}
           <h1
             ref={textRef}
