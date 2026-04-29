@@ -93,8 +93,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                             </div>
 
                             <div className="absolute -left-4 bottom-16 bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-4 shadow-xl animate-fade-up" style={{ animationDelay: '750ms' }}>
-                                <p className="text-2xl font-black tracking-tight">50K</p>
-                                <p className="text-[10px] font-mono text-white/40 tracking-widest uppercase mt-0.5">Marathon Runner</p>
+                                <p className="text-2xl font-black tracking-tight">OTW 50K</p>
+                                <p className="text-[10px] font-mono text-white/40 tracking-widest uppercase mt-0.5">Ultra Marathon</p>
                             </div>
                         </div>
                     </div>
