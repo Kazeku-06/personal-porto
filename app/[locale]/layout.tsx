@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "../globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { NextIntlClientProvider } from 'next-intl';
@@ -18,13 +18,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
+
 export const metadata: Metadata = {
   title: "nopallgtg",
   description: "High-End Minimalist Interactive Portfolio powered by modern fullstack architecture.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#FFFBF0",
 }
 
 export default async function RootLayout({
@@ -43,10 +49,9 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark scroll-smooth" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-[#FDFCF0]`} suppressHydrationWarning>
+    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-[#FFFBF0] text-[#0a0a0a]`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <div className="noise-overlay" />
           <CommandPalette />
           <SmoothScroll>
             {children}

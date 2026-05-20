@@ -41,33 +41,33 @@ export function CommandPalette() {
             {/* Mobile trigger */}
             <button
                 onClick={() => setOpen(true)}
-                className="md:hidden fixed top-5 right-5 z-40 w-10 h-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+                className="md:hidden fixed top-4 right-5 z-40 w-10 h-10 neo-btn bg-[#FFE500] flex items-center justify-center"
                 aria-label="Open Menu"
             >
-                <Menu size={18} className="text-[#FDFCF0]" />
+                <Menu size={18} className="text-black" />
             </button>
 
             {open && (
                 <div
-                    className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh] px-4"
+                    className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] px-4"
                     onClick={() => setOpen(false)}
                 >
                     {/* Backdrop */}
-                    <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
+                    <div className="absolute inset-0 bg-black/40" />
 
                     <Command
-                        className="relative w-full max-w-md bg-[#080808] border border-white/[0.1] rounded-2xl shadow-[0_0_80px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden font-mono"
+                        className="relative w-full max-w-md bg-[#FFFBF0] border-3 border-black shadow-[6px_6px_0px_#0a0a0a] overflow-hidden font-mono"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Search input */}
-                        <div className="flex items-center gap-3 px-5 py-4 border-b border-white/[0.07]">
-                            <Search size={15} className="text-white/30 shrink-0" />
+                        <div className="flex items-center gap-3 px-5 py-4 border-b-3 border-black bg-[#FFE500]">
+                            <Search size={16} className="text-black shrink-0" strokeWidth={2.5} />
                             <Command.Input
                                 placeholder="Search or jump to..."
-                                className="flex-1 bg-transparent border-none outline-none placeholder:text-white/25 text-sm text-white/80 focus:ring-0 caret-white/60"
+                                className="flex-1 bg-transparent border-none outline-none placeholder:text-black/50 text-sm text-black font-bold focus:ring-0 caret-black"
                                 autoFocus
                             />
-                            <kbd className="text-[10px] text-white/20 bg-white/5 border border-white/10 px-2 py-1 rounded-md tracking-widest">
+                            <kbd className="text-[10px] text-black bg-white border-2 border-black px-2 py-1 font-bold tracking-widest">
                                 ESC
                             </kbd>
                         </div>
@@ -76,13 +76,13 @@ export function CommandPalette() {
                             className="py-3 max-h-[55vh] md:max-h-[320px] overflow-y-auto overscroll-contain"
                             data-lenis-prevent="true"
                         >
-                            <Command.Empty className="py-10 text-center text-xs text-white/30 tracking-widest uppercase">
+                            <Command.Empty className="py-10 text-center text-xs text-black/50 tracking-widest uppercase font-bold">
                                 No results found
                             </Command.Empty>
 
                             {/* Navigation group */}
                             <div className="px-3 mb-1">
-                                <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/25 px-2 pb-2">
+                                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-black/40 px-2 pb-2">
                                     Navigation
                                 </p>
                                 {NAV_ITEMS.map((item) => {
@@ -93,32 +93,32 @@ export function CommandPalette() {
                                             key={item.value}
                                             value={item.value}
                                             onSelect={() => navigate(item.href)}
-                                            className="group flex items-center gap-3 px-3 py-3 rounded-xl cursor-pointer transition-all duration-150 outline-none aria-selected:bg-white/[0.07] hover:bg-white/[0.07]"
+                                            className="group flex items-center gap-3 px-3 py-3 cursor-pointer transition-all duration-100 outline-none aria-selected:bg-[#FFE500] hover:bg-[#FFE500] border-2 border-transparent aria-selected:border-black hover:border-black mb-1"
                                         >
                                             {/* Icon box */}
-                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-colors duration-150 ${
+                                            <div className={`w-8 h-8 border-2 border-black flex items-center justify-center transition-colors duration-100 ${
                                                 isActive
-                                                    ? "bg-white border-white/20"
-                                                    : "bg-white/[0.04] border-white/[0.08] group-aria-selected:bg-white/[0.08] group-aria-selected:border-white/[0.15]"
+                                                    ? "bg-black"
+                                                    : "bg-white group-aria-selected:bg-black"
                                             }`}>
-                                                <Icon size={14} className={isActive ? "text-black" : "text-white/50 group-aria-selected:text-white/80"} />
+                                                <Icon size={14} strokeWidth={2.5} className={isActive ? "text-[#FFE500]" : "text-black group-aria-selected:text-[#FFE500]"} />
                                             </div>
 
                                             {/* Label */}
-                                            <span className={`flex-1 text-sm tracking-wide ${isActive ? "text-white font-bold" : "text-white/60 group-aria-selected:text-white/90"}`}>
+                                            <span className={`flex-1 text-sm font-bold tracking-wide ${isActive ? "text-black" : "text-black/70 group-aria-selected:text-black"}`}>
                                                 {item.label}
                                             </span>
 
                                             {/* Active badge */}
                                             {isActive && (
-                                                <span className="text-[9px] font-mono tracking-widest uppercase text-white/30 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                                                <span className="text-[9px] font-black tracking-widest uppercase text-black bg-white border-2 border-black px-2 py-0.5">
                                                     current
                                                 </span>
                                             )}
 
                                             {/* Arrow on hover */}
                                             {!isActive && (
-                                                <ArrowRight size={13} className="text-white/0 group-aria-selected:text-white/30 transition-colors duration-150" />
+                                                <ArrowRight size={14} strokeWidth={2.5} className="text-transparent group-aria-selected:text-black transition-colors duration-100" />
                                             )}
                                         </Command.Item>
                                     );
@@ -126,11 +126,11 @@ export function CommandPalette() {
                             </div>
 
                             {/* Divider */}
-                            <div className="mx-3 my-2 h-px bg-white/[0.06]" />
+                            <div className="mx-3 my-2 h-[3px] bg-black" />
 
                             {/* Settings group */}
                             <div className="px-3">
-                                <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/25 px-2 pb-2">
+                                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-black/40 px-2 pb-2">
                                     Settings
                                 </p>
                                 <Command.Item
@@ -141,15 +141,15 @@ export function CommandPalette() {
                                         });
                                         setOpen(false);
                                     }}
-                                    className="group flex items-center gap-3 px-3 py-3 rounded-xl cursor-pointer transition-all duration-150 outline-none aria-selected:bg-white/[0.07] hover:bg-white/[0.07]"
+                                    className="group flex items-center gap-3 px-3 py-3 cursor-pointer transition-all duration-100 outline-none aria-selected:bg-[#4ECDC4] hover:bg-[#4ECDC4] border-2 border-transparent aria-selected:border-black hover:border-black"
                                 >
-                                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/[0.04] border border-white/[0.08] group-aria-selected:bg-white/[0.08] group-aria-selected:border-white/[0.15] transition-colors duration-150">
-                                        <Globe size={14} className="text-white/50 group-aria-selected:text-white/80" />
+                                    <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center group-aria-selected:bg-black transition-colors duration-100">
+                                        <Globe size={14} strokeWidth={2.5} className="text-black group-aria-selected:text-[#4ECDC4]" />
                                     </div>
-                                    <span className="flex-1 text-sm text-white/60 group-aria-selected:text-white/90 tracking-wide">
+                                    <span className="flex-1 text-sm font-bold text-black/70 group-aria-selected:text-black tracking-wide">
                                         Switch to {locale === "en" ? "Indonesian" : "English"}
                                     </span>
-                                    <span className="text-[10px] font-mono text-white/25 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                                    <span className="text-[10px] font-black text-black bg-white border-2 border-black px-2 py-0.5">
                                         {locale === "en" ? "ID" : "EN"}
                                     </span>
                                 </Command.Item>
@@ -157,18 +157,18 @@ export function CommandPalette() {
                         </Command.List>
 
                         {/* Footer hint */}
-                        <div className="px-5 py-3 border-t border-white/[0.07] flex items-center justify-between">
-                            <div className="flex items-center gap-4 text-[10px] text-white/20 font-mono">
+                        <div className="px-5 py-3 border-t-3 border-black bg-black flex items-center justify-between">
+                            <div className="flex items-center gap-4 text-[10px] text-white font-bold">
                                 <span className="flex items-center gap-1.5">
-                                    <kbd className="bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-[9px]">↑↓</kbd>
+                                    <kbd className="bg-white/10 border border-white/30 px-1.5 py-0.5 text-[9px]">↑↓</kbd>
                                     navigate
                                 </span>
                                 <span className="flex items-center gap-1.5">
-                                    <kbd className="bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-[9px]">↵</kbd>
+                                    <kbd className="bg-white/10 border border-white/30 px-1.5 py-0.5 text-[9px]">↵</kbd>
                                     select
                                 </span>
                             </div>
-                            <span className="text-[10px] font-mono text-white/15 tracking-widest">NAUFAL.</span>
+                            <span className="text-[10px] font-black text-[#FFE500] tracking-widest">NAUFAL.</span>
                         </div>
                     </Command>
                 </div>
