@@ -18,83 +18,85 @@ export default async function ContactPage({
       url: "https://github.com/Kazeku-06",
       icon: Github,
       username: "@Kazeku-06",
-      bg: "bg-[#C7CEEA]",
+      bg: "#0a0a0a",
+      fg: "#FFFBF0",
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/naufal-dzaky-7897b1388/",
       icon: Linkedin,
       username: "Naufal Dzaky",
-      bg: "bg-[#4ECDC4]",
+      bg: "#A8D8FF",
+      fg: "#0a0a0a",
     },
     {
       name: "Discord",
       url: "https://discord.com/users/1070625576290877540",
       icon: SiDiscord,
       username: "nopallgtg",
-      bg: "bg-[#A8E6CF]",
+      bg: "#D4B8FF",
+      fg: "#0a0a0a",
     },
     {
       name: "Email",
       url: "mailto:tssytari@gmail.com",
       icon: Mail,
       username: "tssytari@gmail.com",
-      bg: "bg-[#FF6B6B]",
+      bg: "#FFE566",
+      fg: "#0a0a0a",
     },
     {
       name: "Instagram",
       url: "https://www.instagram.com/nhhdky",
       icon: Instagram,
       username: "@nhhdky",
-      bg: "bg-[#FFD93D]",
+      bg: "#FFB3C6",
+      fg: "#0a0a0a",
     },
     {
       name: "Telegram",
       url: "https://t.me/ryuuuua",
       icon: BsTelegram,
       username: "@ryuuuua",
-      bg: "bg-[#FFE500]",
+      bg: "#B8F5A0",
+      fg: "#0a0a0a",
     },
   ];
 
   return (
     <div className="min-h-[100svh] w-full bg-[#FFFBF0]">
 
-      {/* ── HEADER ── */}
-      <header className="sticky top-0 w-full px-6 md:px-16 lg:px-24 py-4 flex justify-between items-center z-20 bg-[#FFFBF0] border-b-3 border-black">
-        <Link href="/" className="font-mono text-sm tracking-widest font-black flex items-center gap-2 hover:opacity-70 transition-opacity">
-          ← NAUFAL.
-        </Link>
-        <span className="font-mono text-xs font-bold tracking-widest uppercase bg-[#FF6B6B] px-3 py-1.5 neo-box-sm">
-          Contact
-        </span>
-      </header>
-
       {/* ── HERO SECTION ── */}
-      <section className="px-6 md:px-16 lg:px-24 pt-16 pb-12 border-b-3 border-black">
+      <section className="relative pt-32 pb-16 px-6 md:px-16 lg:px-24 border-b-3 border-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
           <div className="animate-fade-up space-y-6">
 
-            <div className="inline-block bg-[#FF6B6B] px-4 py-1.5 neo-box-sm font-mono text-xs font-bold tracking-widest uppercase">
-              Get in Touch
+            <div className="inline-flex items-center gap-3">
+              <span className="border-3 border-[#0a0a0a] bg-[#FFB3C6] px-3 py-1 text-[10px] font-mono font-black tracking-[0.35em] uppercase neo-shadow-sm">
+                Get in Touch
+              </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9]">
-              {t("title")}
-            </h1>
-            <p className="text-sm md:text-base text-black/60 font-mono max-w-lg leading-relaxed font-medium">
-              {t("subtitle")}
-            </p>
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9]">
+                {t("title")}
+              </h1>
+              <p className="text-sm md:text-base text-[#0a0a0a]/60 font-mono max-w-lg leading-relaxed font-bold">
+                {t("subtitle")}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── CONTACT CARDS ── */}
-      <section className="animate-fade-up" style={{ animationDelay: '150ms' }}>
-        <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-14 space-y-8">
-          <h2 className="font-mono text-xs font-black tracking-[0.35em] uppercase">
-            — Social Links
-          </h2>
+      <section className="animate-fade-up" style={{ animationDelay: '200ms' }}>
+        <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-20 space-y-10">
+          <div className="flex items-center gap-4">
+            <span className="border-3 border-[#0a0a0a] bg-[#FFE566] px-3 py-1 text-[10px] font-mono font-black tracking-[0.35em] uppercase neo-shadow-sm">
+              Social Links
+            </span>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {socialLinks.map((social, idx) => {
@@ -105,23 +107,43 @@ export default async function ContactPage({
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`neo-box ${social.bg} flex flex-col justify-between p-6 h-44 animate-fade-up transition-all duration-100 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0a0a0a]`}
-                  style={{ animationDelay: `${200 + idx * 70}ms` }}
+                  className="neo-card flex flex-col justify-between p-6 md:p-7 h-44 animate-fade-up group"
+                  style={{
+                    animationDelay: `${300 + idx * 80}ms`,
+                    backgroundColor: social.bg,
+                    color: social.fg,
+                  }}
                 >
                   {/* Top — icon + arrow */}
                   <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 neo-box-sm bg-white flex items-center justify-center">
-                      <Icon size={20} strokeWidth={2} />
+                    <div
+                      className="w-12 h-12 border-3 flex items-center justify-center"
+                      style={{ borderColor: social.fg, backgroundColor: `${social.fg}20` }}
+                    >
+                      <Icon size={20} style={{ color: social.fg }} />
                     </div>
-                    <span className="font-mono text-lg font-black">↗</span>
+
+                    {/* Arrow indicator */}
+                    <span
+                      className="text-xl font-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200"
+                      style={{ color: social.fg }}
+                    >
+                      ↗
+                    </span>
                   </div>
 
                   {/* Bottom — text */}
-                  <div className="space-y-0.5">
-                    <h3 className="text-lg md:text-xl font-black tracking-tight">
+                  <div className="space-y-1">
+                    <h3
+                      className="text-lg md:text-xl font-black tracking-tight"
+                      style={{ color: social.fg }}
+                    >
                       {social.name}
                     </h3>
-                    <p className="text-xs font-mono font-bold text-black/60 truncate">
+                    <p
+                      className="text-xs font-mono font-bold truncate opacity-70"
+                      style={{ color: social.fg }}
+                    >
                       {social.username}
                     </p>
                   </div>
@@ -133,15 +155,15 @@ export default async function ContactPage({
       </section>
 
       {/* ── FOOTER NAV ── */}
-      <div className="border-t-3 border-black animate-fade-up" style={{ animationDelay: '400ms' }}>
-        <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-6 flex items-center justify-between">
+      <div className="border-t-3 border-[#0a0a0a] animate-fade-up bg-[#FFFBF0]" style={{ animationDelay: '500ms' }}>
+        <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-8 flex items-center justify-between">
           <Link
             href="/"
-            className="neo-btn bg-white px-5 py-2.5 flex items-center gap-2 text-[11px] font-mono font-bold tracking-widest uppercase hover:bg-[#FFE500] transition-colors"
+            className="neo-btn flex items-center gap-2 text-[10px] font-mono font-black tracking-widest uppercase bg-[#FFFBF0] px-4 py-2"
           >
             ← {t("back")}
           </Link>
-          <p className="text-[10px] font-mono font-bold tracking-widest">
+          <p className="text-[10px] font-mono font-bold text-[#0a0a0a]/40 tracking-widest">
             © {new Date().getFullYear()} NAUFAL.
           </p>
         </div>

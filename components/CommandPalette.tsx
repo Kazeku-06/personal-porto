@@ -7,10 +7,10 @@ import { useRouter, usePathname } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 
 const NAV_ITEMS = [
-    { value: "home",     label: "Home",     href: "/",        icon: Home,   shortcut: "H" },
-    { value: "projects", label: "Projects", href: "/projects", icon: Folder, shortcut: "P" },
-    { value: "about",    label: "About",    href: "/about",    icon: User,   shortcut: "A" },
-    { value: "contact",  label: "Contact",  href: "/contact",  icon: Mail,   shortcut: "C" },
+    { value: "home",     label: "Home",     href: "/",        icon: Home,   shortcut: "H", color: "#FFE566" },
+    { value: "projects", label: "Projects", href: "/projects", icon: Folder, shortcut: "P", color: "#B8F5A0" },
+    { value: "about",    label: "About",    href: "/about",    icon: User,   shortcut: "A", color: "#A8D8FF" },
+    { value: "contact",  label: "Contact",  href: "/contact",  icon: Mail,   shortcut: "C", color: "#FFB3C6" },
 ];
 
 export function CommandPalette() {
@@ -41,10 +41,10 @@ export function CommandPalette() {
             {/* Mobile trigger */}
             <button
                 onClick={() => setOpen(true)}
-                className="md:hidden fixed top-4 right-5 z-40 w-10 h-10 neo-btn bg-[#FFE500] flex items-center justify-center"
+                className="md:hidden fixed top-5 right-5 z-40 w-10 h-10 bg-[#FFFBF0] border-3 border-[#0a0a0a] flex items-center justify-center neo-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
                 aria-label="Open Menu"
             >
-                <Menu size={18} className="text-black" />
+                <Menu size={18} className="text-[#0a0a0a]" />
             </button>
 
             {open && (
@@ -53,124 +53,132 @@ export function CommandPalette() {
                     onClick={() => setOpen(false)}
                 >
                     {/* Backdrop */}
-                    <div className="absolute inset-0 bg-black/40" />
+                    <div className="absolute inset-0 bg-[#0a0a0a]/60" />
 
-                    <Command
-                        className="relative w-full max-w-md bg-[#FFFBF0] border-3 border-black shadow-[6px_6px_0px_#0a0a0a] overflow-hidden font-mono"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Search input */}
-                        <div className="flex items-center gap-3 px-5 py-4 border-b-3 border-black bg-[#FFE500]">
-                            <Search size={16} className="text-black shrink-0" strokeWidth={2.5} />
-                            <Command.Input
-                                placeholder="Search or jump to..."
-                                className="flex-1 bg-transparent border-none outline-none placeholder:text-black/50 text-sm text-black font-bold focus:ring-0 caret-black"
-                                autoFocus
-                            />
-                            <kbd className="text-[10px] text-black bg-white border-2 border-black px-2 py-1 font-bold tracking-widest">
-                                ESC
-                            </kbd>
-                        </div>
+                    {/* Offset shadow layer */}
+                    <div className="relative w-full max-w-md">
+                        <div className="absolute top-2 left-2 w-full h-full bg-[#0a0a0a] z-0" />
 
-                        <Command.List
-                            className="py-3 max-h-[55vh] md:max-h-[320px] overflow-y-auto overscroll-contain"
-                            data-lenis-prevent="true"
+                        <Command
+                            className="relative w-full bg-[#FFFBF0] border-3 border-[#0a0a0a] overflow-hidden font-mono z-10"
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            <Command.Empty className="py-10 text-center text-xs text-black/50 tracking-widest uppercase font-bold">
-                                No results found
-                            </Command.Empty>
+                            {/* Search input */}
+                            <div className="flex items-center gap-3 px-5 py-4 border-b-3 border-[#0a0a0a] bg-[#FFE566]">
+                                <Search size={16} className="text-[#0a0a0a] shrink-0" />
+                                <Command.Input
+                                    placeholder="Search or jump to..."
+                                    className="flex-1 bg-transparent border-none outline-none placeholder:text-[#0a0a0a]/50 text-sm text-[#0a0a0a] font-black focus:ring-0 caret-[#0a0a0a]"
+                                    autoFocus
+                                />
+                                <kbd className="text-[10px] text-[#0a0a0a] bg-[#FFFBF0] border-2 border-[#0a0a0a] px-2 py-1 font-black tracking-widest">
+                                    ESC
+                                </kbd>
+                            </div>
 
-                            {/* Navigation group */}
-                            <div className="px-3 mb-1">
-                                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-black/40 px-2 pb-2">
-                                    Navigation
-                                </p>
-                                {NAV_ITEMS.map((item) => {
-                                    const Icon = item.icon;
-                                    const isActive = pathname === item.href;
-                                    return (
-                                        <Command.Item
-                                            key={item.value}
-                                            value={item.value}
-                                            onSelect={() => navigate(item.href)}
-                                            className="group flex items-center gap-3 px-3 py-3 cursor-pointer transition-all duration-100 outline-none aria-selected:bg-[#FFE500] hover:bg-[#FFE500] border-2 border-transparent aria-selected:border-black hover:border-black mb-1"
-                                        >
-                                            {/* Icon box */}
-                                            <div className={`w-8 h-8 border-2 border-black flex items-center justify-center transition-colors duration-100 ${
-                                                isActive
-                                                    ? "bg-black"
-                                                    : "bg-white group-aria-selected:bg-black"
-                                            }`}>
-                                                <Icon size={14} strokeWidth={2.5} className={isActive ? "text-[#FFE500]" : "text-black group-aria-selected:text-[#FFE500]"} />
-                                            </div>
+                            <Command.List
+                                className="py-3 max-h-[55vh] md:max-h-[320px] overflow-y-auto overscroll-contain"
+                                data-lenis-prevent="true"
+                            >
+                                <Command.Empty className="py-10 text-center text-xs text-[#0a0a0a]/50 tracking-widest uppercase font-bold">
+                                    No results found
+                                </Command.Empty>
 
-                                            {/* Label */}
-                                            <span className={`flex-1 text-sm font-bold tracking-wide ${isActive ? "text-black" : "text-black/70 group-aria-selected:text-black"}`}>
-                                                {item.label}
-                                            </span>
+                                {/* Navigation group */}
+                                <div className="px-3 mb-1">
+                                    <p className="text-[10px] font-black tracking-[0.3em] uppercase text-[#0a0a0a]/40 px-2 pb-2">
+                                        Navigation
+                                    </p>
+                                    {NAV_ITEMS.map((item) => {
+                                        const Icon = item.icon;
+                                        const isActive = pathname === item.href;
+                                        return (
+                                            <Command.Item
+                                                key={item.value}
+                                                value={item.value}
+                                                onSelect={() => navigate(item.href)}
+                                                className="group flex items-center gap-3 px-3 py-3 cursor-pointer transition-all duration-100 outline-none aria-selected:bg-[#0a0a0a]/5 hover:bg-[#0a0a0a]/5"
+                                            >
+                                                {/* Icon box */}
+                                                <div
+                                                    className="w-9 h-9 border-3 border-[#0a0a0a] flex items-center justify-center shrink-0 transition-all duration-100"
+                                                    style={{
+                                                        backgroundColor: isActive ? "#0a0a0a" : item.color,
+                                                        boxShadow: isActive ? "none" : "2px 2px 0px #0a0a0a",
+                                                    }}
+                                                >
+                                                    <Icon size={14} className={isActive ? "text-[#FFFBF0]" : "text-[#0a0a0a]"} />
+                                                </div>
 
-                                            {/* Active badge */}
-                                            {isActive && (
-                                                <span className="text-[9px] font-black tracking-widest uppercase text-black bg-white border-2 border-black px-2 py-0.5">
-                                                    current
+                                                {/* Label */}
+                                                <span className={`flex-1 text-sm font-black tracking-wide ${isActive ? "text-[#0a0a0a]" : "text-[#0a0a0a]/70 group-aria-selected:text-[#0a0a0a]"}`}>
+                                                    {item.label}
                                                 </span>
-                                            )}
 
-                                            {/* Arrow on hover */}
-                                            {!isActive && (
-                                                <ArrowRight size={14} strokeWidth={2.5} className="text-transparent group-aria-selected:text-black transition-colors duration-100" />
-                                            )}
-                                        </Command.Item>
-                                    );
-                                })}
-                            </div>
+                                                {/* Active badge */}
+                                                {isActive && (
+                                                    <span className="text-[9px] font-black tracking-widest uppercase text-[#0a0a0a] bg-[#FFE566] border-2 border-[#0a0a0a] px-2 py-0.5">
+                                                        current
+                                                    </span>
+                                                )}
 
-                            {/* Divider */}
-                            <div className="mx-3 my-2 h-[3px] bg-black" />
+                                                {/* Arrow on hover */}
+                                                {!isActive && (
+                                                    <ArrowRight size={13} className="text-transparent group-aria-selected:text-[#0a0a0a]/40 transition-colors duration-100" />
+                                                )}
+                                            </Command.Item>
+                                        );
+                                    })}
+                                </div>
 
-                            {/* Settings group */}
-                            <div className="px-3">
-                                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-black/40 px-2 pb-2">
-                                    Settings
-                                </p>
-                                <Command.Item
-                                    value="language switch"
-                                    onSelect={() => {
-                                        router.replace(pathname, {
-                                            locale: locale === "en" ? "id" : "en",
-                                        });
-                                        setOpen(false);
-                                    }}
-                                    className="group flex items-center gap-3 px-3 py-3 cursor-pointer transition-all duration-100 outline-none aria-selected:bg-[#4ECDC4] hover:bg-[#4ECDC4] border-2 border-transparent aria-selected:border-black hover:border-black"
-                                >
-                                    <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center group-aria-selected:bg-black transition-colors duration-100">
-                                        <Globe size={14} strokeWidth={2.5} className="text-black group-aria-selected:text-[#4ECDC4]" />
-                                    </div>
-                                    <span className="flex-1 text-sm font-bold text-black/70 group-aria-selected:text-black tracking-wide">
-                                        Switch to {locale === "en" ? "Indonesian" : "English"}
+                                {/* Divider */}
+                                <div className="mx-3 my-2 h-[3px] bg-[#0a0a0a]" />
+
+                                {/* Settings group */}
+                                <div className="px-3">
+                                    <p className="text-[10px] font-black tracking-[0.3em] uppercase text-[#0a0a0a]/40 px-2 pb-2">
+                                        Settings
+                                    </p>
+                                    <Command.Item
+                                        value="language switch"
+                                        onSelect={() => {
+                                            router.replace(pathname, {
+                                                locale: locale === "en" ? "id" : "en",
+                                            });
+                                            setOpen(false);
+                                        }}
+                                        className="group flex items-center gap-3 px-3 py-3 cursor-pointer transition-all duration-100 outline-none aria-selected:bg-[#0a0a0a]/5 hover:bg-[#0a0a0a]/5"
+                                    >
+                                        <div className="w-9 h-9 border-3 border-[#0a0a0a] bg-[#D4B8FF] flex items-center justify-center transition-all duration-100"
+                                            style={{ boxShadow: "2px 2px 0px #0a0a0a" }}>
+                                            <Globe size={14} className="text-[#0a0a0a]" />
+                                        </div>
+                                        <span className="flex-1 text-sm font-black text-[#0a0a0a]/70 group-aria-selected:text-[#0a0a0a] tracking-wide">
+                                            Switch to {locale === "en" ? "Indonesian" : "English"}
+                                        </span>
+                                        <span className="text-[10px] font-black text-[#0a0a0a] bg-[#D4B8FF] border-2 border-[#0a0a0a] px-2 py-0.5">
+                                            {locale === "en" ? "ID" : "EN"}
+                                        </span>
+                                    </Command.Item>
+                                </div>
+                            </Command.List>
+
+                            {/* Footer hint */}
+                            <div className="px-5 py-3 border-t-3 border-[#0a0a0a] bg-[#0a0a0a] flex items-center justify-between">
+                                <div className="flex items-center gap-4 text-[10px] text-[#FFFBF0]/60 font-mono font-bold">
+                                    <span className="flex items-center gap-1.5">
+                                        <kbd className="bg-[#FFFBF0]/10 border border-[#FFFBF0]/20 px-1.5 py-0.5 text-[9px] text-[#FFFBF0]">↑↓</kbd>
+                                        navigate
                                     </span>
-                                    <span className="text-[10px] font-black text-black bg-white border-2 border-black px-2 py-0.5">
-                                        {locale === "en" ? "ID" : "EN"}
+                                    <span className="flex items-center gap-1.5">
+                                        <kbd className="bg-[#FFFBF0]/10 border border-[#FFFBF0]/20 px-1.5 py-0.5 text-[9px] text-[#FFFBF0]">↵</kbd>
+                                        select
                                     </span>
-                                </Command.Item>
+                                </div>
+                                <span className="text-[10px] font-black text-[#FFFBF0]/40 tracking-widest">NAUFAL.</span>
                             </div>
-                        </Command.List>
-
-                        {/* Footer hint */}
-                        <div className="px-5 py-3 border-t-3 border-black bg-black flex items-center justify-between">
-                            <div className="flex items-center gap-4 text-[10px] text-white font-bold">
-                                <span className="flex items-center gap-1.5">
-                                    <kbd className="bg-white/10 border border-white/30 px-1.5 py-0.5 text-[9px]">↑↓</kbd>
-                                    navigate
-                                </span>
-                                <span className="flex items-center gap-1.5">
-                                    <kbd className="bg-white/10 border border-white/30 px-1.5 py-0.5 text-[9px]">↵</kbd>
-                                    select
-                                </span>
-                            </div>
-                            <span className="text-[10px] font-black text-[#FFE500] tracking-widest">NAUFAL.</span>
-                        </div>
-                    </Command>
+                        </Command>
+                    </div>
                 </div>
             )}
         </>
