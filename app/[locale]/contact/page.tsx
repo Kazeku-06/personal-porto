@@ -55,9 +55,9 @@ export default async function ContactPage({
     },
     {
       name: "Telegram",
-      url: "https://t.me/ryuuuua",
+      url: "https://t.me/nopallgtg",
       icon: BsTelegram,
-      username: "@ryuuuua",
+      username: "@nopallgtg",
       bg: "#B8F5A0",
       fg: "#0a0a0a",
     },

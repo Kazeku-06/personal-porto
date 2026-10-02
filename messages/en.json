@@ -3,7 +3,7 @@
     "title1": "Runs 50K Marathons,",
     "title2": "Afraid of Error 404.",
     "subtitle": "Building systems more stable than my legs after a 1,000m elevation gain.",
-    "role": "Software Engineering Student | Backend Enthusiast",
+    "role": "Software Engineering Student | Backend Enthusiast | Fullstack Developer ",
     "work": "My Crafts",
     "about": "The Nerd",
     "contact": "Say Hello"
@@ -40,7 +40,7 @@
         "title": "Internship Program",
         "company": "PT. Sekawan Media Informatika",
         "period": "2026 - 2027",
-        "description": "Professional training: Trying not to panic when deploying to production on a Friday afternoon."
+        "description": "Learning to be professional: Trying not to panic when accidentally overwriting local data to production."
       }
     ]
   },
@@ -48,5 +48,13 @@
     "title": "Let’s Talk Code",
     "subtitle": "Open for collaborations or just sharing Stack Overflow links over coffee.",
     "back": "Back to Reality"
+  },
+  "NotFound": {
+    "title1": "You’re Lost in Space,",
+    "title2": "Error 404.",
+    "subtitle": "The page you are looking for does not exist, or has been moved to another dimension.",
+    "back": "Back to Home",
+    "projects": "See Projects",
+    "contact": "Contact Me"
   }
 }

@@ -1,0 +1,16 @@
+[Unit]
+Description=Porto-GW Health Monitor & Self-Healing Service
+After=network.target docker.service caddy.service
+Wants=docker.service
+
+[Service]
+Type=simple
+User=nopal
+WorkingDirectory=/home/nopal/production/porto-gw/monitor
+ExecStart=/usr/bin/python3 /home/nopal/production/porto-gw/monitor/monitor.py
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

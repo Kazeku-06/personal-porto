@@ -3,7 +3,7 @@
     "title1": "Kuat Lari 50 KM,",
     "title2": "Lemah Lihat Error.",
     "subtitle": "Membangun sistem yang lebih stabil daripada mental pas nanjak 1.000 meter.",
-    "role": "Software Engineering Student | Backend Developer",
+    "role": "Software Engineering Student | Backend Developer | Fullstack Developer",
     "work": "Karya (Bukan Copas)",
     "about": "Tentang",
     "contact": "Panggil Saya"
@@ -40,7 +40,7 @@
         "title": "Praktik Kerja Lapangan",
         "company": "PT. Sekawan Media Informatika",
         "period": "2026 - 2027",
-        "description": "Belajar jadi profesional: Berusaha tidak panik saat deploy ke production di hari Jumat."
+        "description": "Belajar jadi profesional: Berusaha tidak panik saat salah replace data Local ke Production."
       }
     ]
   },
@@ -48,5 +48,13 @@
     "title": "Mari Berghibah Kode",
     "subtitle": "Terbuka untuk kolaborasi atau sekadar berbagi link Stack Overflow.",
     "back": "Kembali ke Kenyataan"
+  },
+  "NotFound": {
+    "title1": "Kamu Nyasar,",
+    "title2": "Error 404.",
+    "subtitle": "Halaman yang kamu cari tidak ada, atau mungkin sudah pindah ke dimensi lain.",
+    "back": "Kembali ke Beranda",
+    "projects": "Lihat Karya",
+    "contact": "Panggil Saya"
   }
 }

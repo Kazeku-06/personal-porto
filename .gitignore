@@ -45,3 +45,8 @@ Caddyfile
 
 # tugas
 tugas.md
+
+# monitor
+monitor/config.env
+monitor/*.log
+monitor/*.pid

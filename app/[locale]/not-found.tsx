@@ -4,12 +4,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { Link } from "@/i18n/routing";
-import { Github, Linkedin, Instagram, Command } from "lucide-react";
+import { Github, Linkedin, Instagram, Home as HomeIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Logo } from "@/components/Logo";
 
-export default function Home() {
-  const t = useTranslations("Home");
+export default function NotFound() {
+  const t = useTranslations("NotFound");
 
   const textRef = useRef<HTMLHeadingElement>(null);
   const subtitleContainerRef = useRef<HTMLDivElement>(null);
@@ -41,9 +41,6 @@ export default function Home() {
         .from(".cta-buttons", {
           y: 20, opacity: 0, duration: 0.6, ease: "power2.out", clearProps: "all",
         }, "-=0.7")
-        .from(".stats-block", {
-          y: 30, opacity: 0, duration: 0.6, ease: "power2.out", clearProps: "all",
-        }, "-=0.5")
         .from(".social-icon", {
           scale: 0, opacity: 0, stagger: 0.08, duration: 0.4, ease: "back.out(1.7)", clearProps: "all",
         }, "-=0.3");
@@ -60,7 +57,7 @@ export default function Home() {
       <div className="absolute bottom-0 left-0 w-[220px] h-[220px] bg-[#B8F5A0] border-r-3 border-t-3 border-[#0a0a0a] pointer-events-none z-0" />
       <div className="absolute bottom-[15%] right-[5%] w-[120px] h-[120px] bg-[#FFB3C6] border-3 border-[#0a0a0a] pointer-events-none z-0 rotate-12" />
 
-      {/* Header */}
+      {/* Header (No navigation menu, as requested) */}
       <header className="absolute top-0 w-full px-6 md:px-16 lg:px-24 py-6 md:py-8 flex justify-between items-center z-20">
         <Link
           href="/"
@@ -76,10 +73,10 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto w-full">
 
-          {/* Role badge */}
+          {/* 404 Badge */}
           <div className="flex justify-center mb-8">
             <div className="inline-block border-3 border-[#0a0a0a] bg-[#D4B8FF] px-5 py-2 neo-shadow-sm font-mono text-xs font-black tracking-widest uppercase">
-              {t("role")}
+              STATUS 404: LOST IN SPACE
             </div>
           </div>
 
@@ -111,16 +108,17 @@ export default function Home() {
           {/* CTA Buttons */}
           <div className="cta-buttons flex flex-wrap items-center justify-center gap-4 mt-12">
             <Link
-              href="/projects"
-              className="neo-btn bg-[#0a0a0a] text-[#FFFBF0] px-8 py-3 font-mono text-sm tracking-widest uppercase"
+              href="/"
+              className="neo-btn bg-[#0a0a0a] text-[#FFFBF0] px-8 py-3 font-mono text-sm tracking-widest uppercase flex items-center gap-2"
             >
-              {t("work")} →
+              <HomeIcon size={16} />
+              {t("back")}
             </Link>
             <Link
-              href="/about"
+              href="/projects"
               className="neo-btn bg-[#A8D8FF] text-[#0a0a0a] px-8 py-3 font-mono text-sm tracking-widest uppercase"
             >
-              {t("about")}
+              {t("projects")}
             </Link>
             <Link
               href="/contact"
@@ -128,24 +126,6 @@ export default function Home() {
             >
               {t("contact")}
             </Link>
-          </div>
-
-          {/* Stats Cards */}
-          <div className="stats-block mt-16 grid grid-cols-3 gap-0 max-w-3xl mx-auto w-full border-3 border-[#0a0a0a] neo-shadow-lg">
-            {[
-              { value: "2+", label: "Years Coding", color: "#FFE566" },
-              { value: "∞", label: "Projects Built", color: "#B8F5A0" },
-              { value: "50K", label: "Marathon Runner", color: "#FFB3C6" },
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="stat-card p-6 md:p-8 text-center border-r-3 border-[#0a0a0a] last:border-r-0"
-                style={{ backgroundColor: stat.color }}
-              >
-                <p className="text-3xl md:text-4xl font-black tracking-tight mb-2">{stat.value}</p>
-                <p className="text-[11px] font-mono font-black tracking-widest uppercase">{stat.label}</p>
-              </div>
-            ))}
           </div>
 
         </div>
@@ -174,16 +154,6 @@ export default function Home() {
               </a>
             ))}
           </div>
-
-          {/* CMD hint */}
-          <button
-            onClick={() => document.dispatchEvent(new KeyboardEvent("keydown", { key: "/", metaKey: true }))}
-            className="neo-btn flex items-center gap-2 text-[10px] font-mono font-black tracking-widest uppercase bg-[#FFE566] px-4 py-2 cursor-pointer"
-          >
-            <Command size={12} />
-            <span className="hidden sm:inline">CTRL + /</span>
-            <span className="sm:hidden">Menu</span>
-          </button>
 
           {/* Copyright */}
           <p className="text-[10px] font-mono font-black text-[#0a0a0a]/40 tracking-widest">

@@ -75,7 +75,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                                 {/* Badge */}
                                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2">
                                     <span className="text-[10px] font-mono font-black tracking-widest uppercase text-[#0a0a0a] bg-[#FFE566] border-2 border-[#0a0a0a] px-3 py-1.5">
-                                        Backend Dev
+                                        Fullstack Dev
                                     </span>
                                     <span className="text-[10px] font-mono font-black text-[#0a0a0a] bg-[#B8F5A0] border-2 border-[#0a0a0a] px-3 py-1.5">
                                         Malang, ID

@@ -10,12 +10,11 @@ import {
     SiPrisma,
     SiPostgresql,
     SiNodedotjs,
-    SiFramer,
-    SiShadcnui,
+
+
     SiLaravel,
     SiPhp,
     SiMysql,
-    SiRust,
     SiPython,
     SiVuedotjs,
     SiSharp,
@@ -30,9 +29,11 @@ import {
     SiDocker,
     SiLaragon,
     SiPostman,
-    SiLivewire,
-    SiFigma,
+
+    SiCodeigniter,
+    SiSencha,
 } from "react-icons/si";
+import { DiExtjs } from "react-icons/di";
 
 const tagColors = [
     "#FFE566",
@@ -54,29 +55,24 @@ export default function TechStackList() {
         { name: "HTML", icon: SiHtml5 },
         { name: "CSS", icon: SiCss },
         { name: "Tailwind CSS", icon: SiTailwindcss },
-        { name: "GSAP", icon: SiGreensock },
-        { name: "Prisma", icon: SiPrisma },
         { name: "PostgreSQL", icon: SiPostgresql },
         { name: "Node.js", icon: SiNodedotjs },
-        { name: "Framer Motion", icon: SiFramer },
-        { name: "Shadcn UI", icon: SiShadcnui },
         { name: "Laravel", icon: SiLaravel },
         { name: "MySQL", icon: SiMysql },
         { name: "PHP", icon: SiPhp },
-        { name: "Rust", icon: SiRust },
         { name: "Python", icon: SiPython },
         { name: "Vue.js", icon: SiVuedotjs },
         { name: "C#", icon: SiSharp },
         { name: "Git", icon: SiGit },
         { name: "GitHub", icon: SiGithub },
         { name: "Flask", icon: SiFlask },
-        { name: "Dart", icon: SiDart },
         { name: "Bootstrap", icon: SiBootstrap },
         { name: "Docker", icon: SiDocker },
         { name: "Laragon", icon: SiLaragon },
         { name: "Postman", icon: SiPostman },
-        { name: "Livewire", icon: SiLivewire },
-        { name: "Figma", icon: SiFigma },
+        { name: "Ext JS", icon: DiExtjs },
+        { name: "Sencha Architect", icon: SiSencha },
+        { name: "CodeIgniter 3", icon: SiCodeigniter },
     ];
 
     const initialMobileCount = 3;
