@@ -64,7 +64,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
                             <div className="relative w-[280px] md:w-[340px] aspect-[3/4] overflow-hidden border-3 border-[#0a0a0a] z-10">
                                 <Image
-                                    src="/profile.jpg"
+                                    src="/for-porto.jpg"
                                     alt="Naufal Dzaky"
                                     fill
                                     className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
